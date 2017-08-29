@@ -2,6 +2,8 @@
 distrr
 ======
 
+[![Travis-CI Build Status](https://travis-ci.org/gibonet/distrr.svg?branch=master)](https://travis-ci.org/gibonet/distrr)
+
 R package
 
 Installation
