@@ -19,7 +19,8 @@ License: GPL-2
 Author: Sandro Petrillo Burri <gibo.gaf@gmail.com>
 Maintainer: Sandro Petrillo Burri <gibo.gaf@gmail.com>
 Suggests:
-    knitr
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 Encoding: UTF-8
