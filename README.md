@@ -2,7 +2,7 @@
 distrr
 ======
 
-[![Travis-CI Build Status](https://travis-ci.org/gibonet/distrr.svg?branch=master)](https://travis-ci.org/gibonet/distrr)
+[![Travis-CI Build Status](https://travis-ci.org/gibonet/distrr.svg?branch=master)](https://travis-ci.org/gibonet/distrr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/distrr)](http://cran.r-project.org/package=distrr)
 
 R package
 
