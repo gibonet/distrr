@@ -1,0 +1,35 @@
+Package: distrr
+Title: Tools to Estimate and Manage Empirical Distributions
+Description: Tools to estimate and manage empirical distributions,
+    which should work with survey data. One of the main features is the 
+    possibility to create data cubes of estimated statistics, that include
+    all the combinations of the variables of interest (see for example functions
+    'dcc' and 'dcc2').
+Depends:
+    R (>= 3.1.2)
+Imports:
+    magrittr (>= 1.5),
+    dplyr (>= 0.5.0),
+    lazyeval (>= 0.1.10),
+    utils,
+    stats,
+    tidyr (>= 0.3.0)
+Version: 0.0.3.9013
+License: GPL-2
+Author: Sandro Petrillo Burri <gibo.gaf@gmail.com>
+Maintainer: Sandro Petrillo Burri <gibo.gaf@gmail.com>
+Suggests:
+    knitr
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
+Encoding: UTF-8
+LazyData: yes
+Collate:
+  "distrr.R"
+  "invented_data.R"
+  "gibutils.R"
+  "jointfuns.R"
+  "Fhat_conditional.R"
+  "distrr_funs.R"
+  "dcc_new.R"
+  "wq_df.R"
