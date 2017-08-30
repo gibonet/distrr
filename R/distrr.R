@@ -11,7 +11,7 @@
 #' 
 #' @import lazyeval
 #' @importFrom dplyr group_by_ summarise_ mutate_ filter_ arrange_ select_ mutate_all bind_cols bind_rows combine ungroup
-#' @importFrom utils combn download.file
+#' @importFrom utils combn
 #' @importFrom stats na.omit setNames quantile
 #' @importFrom tidyr expand expand_ complete_
 NULL
