@@ -42,9 +42,13 @@ the variables used for grouping. The result will be a data frame in "tidy form".
 
 # Installation
 
-At the moment, `distrr` is available only on github and can be installed with:
 
 ```
+# From CRAN
+install.packages("distrr")
+
+
+# Or the development version from GitHub:
 # install.packages("devtools")
 devtools::install_github("gibonet/distrr")
 ```
