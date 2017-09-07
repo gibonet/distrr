@@ -19,8 +19,26 @@ knitr::opts_chunk$set(
 [![Travis-CI Build Status](https://travis-ci.org/gibonet/distrr.svg?branch=master)](https://travis-ci.org/gibonet/distrr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
 
 
-R package
+# Overview
 
+distrr provides some tools to estimate and manage empirical distributions. In particular, one of the main features of distrr is
+the creation of data cubes of estimated statistics, that include all the combinations of the variables of interest. The package makes strong
+usage of the tools provided by [dplyr](https://cran.r-project.org/package=dplyr), which is a grammar of data manipulation.
+
+The main functions to create a data cube are `dcc5()` and `dcc6()` (`dcc` stands for data cube creation).
+
+The data cube creation is like:
+
+```
+data %>%
+  group_by(some variables) %>%
+  summarise(one or more estimated statistic)
+```
+
+in [dplyr](https://cran.r-project.org/package=dplyr) terms, but the operation is done for each possible combination of
+the variables used for grouping. The result will be a data frame in "tidy form". See some examples in the Usage section below. 
+
+ 
 
 # Installation
 
@@ -31,3 +49,76 @@ At the moment, `distrr` is available only on github and can be installed with:
 devtools::install_github("gibonet/distrr")
 ```
 
+
+# Usage
+
+Consider the `invented_wages` dataset:
+
+```{r}
+library(distrr)
+str(invented_wages)
+```
+
+If we want to count the number of observations and estimate the average wage by gender, 
+with [dplyr](https://cran.r-project.org/package=dplyr) we can do:
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+invented_wages %>%
+  group_by(gender) %>%
+  summarise(n = n(), av_wage = mean(wage))
+```
+
+We can estimate the same statistics but grouped by education by changing the argument inside `group_by`:
+
+```{r}
+invented_wages %>%
+  group_by(education) %>%
+  summarise(n = n(), av_wage = mean(wage))
+```
+
+and estimate the statistics by gender and education including both variables in `group_by`:
+
+```{r}
+invented_wages %>%
+  group_by(gender, education) %>%
+  summarise(n = n(), av_wage = mean(wage))
+```
+
+
+With `dcc5` we can perform all the steps above with one call:
+
+```{r}
+invented_wages %>% 
+  dcc5(.variables = c("gender", "education"), av_wage = ~mean(wage))
+```
+
+The resulting data frame contains a column for each grouping variable, and the estimations of all the combinations of the variables:
+
+- by gender
+- by education
+- by gender and education
+- plus the same statistics for all the dataset, without any grouping (this can be set with the argument `.all`, which by default is `TRUE`).
+
+Note that in the result there are some rows where the variables take the value `"Totale"`. When a variable has this value, it means that the subset of the data considered in that row contains all the values of the variable. For example, the first row of the result of `dcc5` contains the estimations for all the dataset. The value `"Totale"` can be changed with the argument `.total`.
+
+
+The same result of `dcc5` can be produced by `dcc6`, with a slightly different approach.
+
+```{r}
+# Set a list of function calls
+list_of_funs <- list(
+  n = ~n(),
+  av_wage = ~mean(wage),
+  weighted_av_wage = ~weighted.mean(wage, sample_weights)
+)
+
+# Set the grouping variables
+vars <- c(c("gender", "education"))
+
+# And create the data cube with dcc6
+invented_wages %>% 
+  dcc6(.variables = vars, .funs_list = list_of_funs, .total = "TOTAL")
+```
+
+Compared to the results obtained with `dcc5`, we added the weighted average of wages and changed the `"Totale"` value to `"TOTAL"`.
