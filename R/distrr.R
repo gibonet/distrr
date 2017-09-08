@@ -1,10 +1,10 @@
-#' Tools to estimate and manage empirical distributions
+#' Estimate and manage empirical distributions
 #' 
 #' Tools to estimate and manage empirical distributions,
 #' which should work with survey data. One of the main features is the 
 #' possibility to create data cubes of estimated statistics, that include
 #' all the combinations of the variables of interest (see for example functions
-#' 'dcc' and 'dcc2').
+#' dcc5() and dcc6()).
 #' 
 #' @docType package
 #' @name distrr
