@@ -134,7 +134,7 @@ list_of_funs <- list(
 )
 
 # Set the grouping variables
-vars <- c(c("gender", "education"))
+vars <- c("gender", "education")
 
 # And create the data cube with dcc6
 invented_wages %>% 
