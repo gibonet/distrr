@@ -1,10 +1,10 @@
 Package: distrr
-Title: Tools to Estimate and Manage Empirical Distributions
+Title: Estimate and Manage Empirical Distributions
 Description: Tools to estimate and manage empirical distributions,
     which should work with survey data. One of the main features is the 
     possibility to create data cubes of estimated statistics, that include
     all the combinations of the variables of interest (see for example functions
-    'dcc5' and 'dcc6').
+    dcc5() and dcc6()).
 Depends:
     R (>= 3.1.2)
 Imports:

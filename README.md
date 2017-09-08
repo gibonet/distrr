@@ -22,8 +22,11 @@ in [dplyr](https://cran.r-project.org/package=dplyr) terms, but the operation is
 Installation
 ============
 
-At the moment, `distrr` is available only on github and can be installed with:
+    # From CRAN
+    install.packages("distrr")
 
+
+    # Or the development version from GitHub:
     # install.packages("devtools")
     devtools::install_github("gibonet/distrr")
 
