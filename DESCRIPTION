@@ -14,7 +14,7 @@ Imports:
     utils,
     stats,
     tidyr (>= 0.3.0)
-Version: 0.0.4
+Version: 0.0.4.9000
 License: GPL-2
 Author: Sandro Petrillo Burri <gibo.gaf@gmail.com>
 Maintainer: Sandro Petrillo Burri <gibo.gaf@gmail.com>
