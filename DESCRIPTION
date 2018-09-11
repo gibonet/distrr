@@ -16,6 +16,7 @@ Imports:
     tidyr (>= 0.3.0)
 Version: 0.0.4.9000
 License: GPL-2
+URL: https://gibonet.github.io/distrr, https://github.com/gibonet/distrr
 Authors@R: c(
   person("Sandro", "Petrillo Burri", email = "gibo.gaf@gmail.com", role = c("aut", "cre")))
 Maintainer: Sandro Petrillo Burri <gibo.gaf@gmail.com>
