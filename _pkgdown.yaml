@@ -1,0 +1,27 @@
+reference:
+  - title: Data cube creation
+    desc: Functions for creating data cubes.
+    contents:
+    - '`dcc`'
+    - '`dcc6`'
+  - title: Distribution estimation
+    desc: Functions for estimating empirical distribution function and other statistics.
+    contents:
+    - '`Fhat_df_`'
+    - '`Fhat_conditional_`'
+    - '`wq`'
+  - title: jointfun_
+    desc: Function that counts the number of observations by groups in a data frame.
+    contents:
+    - '`jointfun_`'
+  - title: Data
+    desc: Data sets included in distrr and used in examples and vignettes..
+    contents:
+    - '`invented_wages`'
+  - title: Other
+    desc: ~
+    contents:
+    - '`combn_char`'
+    - '`distrr`'
+    - '`extract_unique`'
+    - '`only_joint`'
