@@ -8,7 +8,8 @@
 \usage{
 dcc(.data, .variables, .fun = jointfun_, ...)
 
-dcc2(.data, .variables, .fun = jointfun_, order_type = extract_unique2, ...)
+dcc2(.data, .variables, .fun = jointfun_, order_type = extract_unique2,
+  ...)
 
 dcc5(.data, .variables, .fun = jointfun_, .total = "Totale",
   order_type = extract_unique4, .all = TRUE, ...)
