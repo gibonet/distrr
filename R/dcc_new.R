@@ -39,7 +39,7 @@ finish_cube <- function(joint_all, .variables, l_lev, l){
   # Completamento delle righe per le quali non esistono combinazioni di
   # variabili nei dati
   joint_all <- joint_all %>% 
-    tidyr::complete_(cols = .variables, fill = as.list(rep(NA, l)))
+    complete2_(.variables = .variables)
 
   # Trasformazione delle .variables in factor e assegnamento dei livelli
   # in base a l_lev
