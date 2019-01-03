@@ -10,7 +10,7 @@
 #' @name distrr
 #' 
 #' @import lazyeval
-#' @importFrom dplyr group_by_ summarise_ mutate_ filter_ arrange_ select_ mutate_all bind_cols bind_rows combine ungroup
+#' @importFrom dplyr group_by_ summarise_ mutate_ filter_ arrange_ select_ mutate_all bind_cols bind_rows combine ungroup n
 #' @importFrom utils combn
 #' @importFrom stats na.omit setNames quantile
 #' @importFrom tidyr expand expand_ complete_
