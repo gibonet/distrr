@@ -15,7 +15,7 @@
 jointfun_ <- function(.data, .variables, ...){
   .data %>%
     gby_(.variables) %>%
-    summarise2_(n = ~n(), ...) %>%
+    summarise2_(n = ~dplyr::n(), ...) %>%
     stats::na.omit()
 }
 
