@@ -1,0 +1,12 @@
+distrr 0.0.5
+----------------------------------------------------------------
+
+* lazyeval has been substituted with rlang (tidy evaluation).
+  This means that all the softly-deprecated dplyr functions that
+  ended with an underscore (like summarise_(), select_(), ...) have
+  been substituted with the versions without underscore (like
+  summarise(), select(), and so on). All the dplyr functions are
+  in dplyr_new_wrappers.R.
+* In some functions (jointfun_(), dcc6() and joint_all_funs_())
+  n() has been replaced with dplyr::n() (to be compatible with
+  dplyr 0.0.8).
