@@ -178,7 +178,7 @@ dcc5 <- function(.data, .variables, .fun = jointfun_, .total = "Totale",
 #   p25 = ~wq(wage, sample_weights, probs = 0.25))
 ###############################################################################
 # Computations for the cube creation
-joint_all_funs_ <- function(.data, .variables, .funs_list = list(n = ~n()), 
+joint_all_funs_ <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()), 
                             .total = "Totale", .all = TRUE){
   l <- length(.variables)
   m_comb <- combn_l(l)
@@ -240,16 +240,16 @@ joint_all_funs_ <- function(.data, .variables, .funs_list = list(n = ~n()),
 #' @examples 
 #' dcc6(invented_wages,
 #'      .variables = c("gender", "sector"), 
-#'      .funs_list = list(n = ~n()),
+#'      .funs_list = list(n = ~dplyr::n()),
 #'      .all = TRUE)
 #'      
 #' dcc6(invented_wages,
 #'      .variables = c("gender", "sector"), 
-#'      .funs_list = list(n = ~n()),
+#'      .funs_list = list(n = ~dplyr::n()),
 #'      .all = FALSE)
 #' 
 #' @export
-dcc6 <- function(.data, .variables, .funs_list = list(n = ~n()), .total = "Totale", 
+dcc6 <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()), .total = "Totale", 
                  order_type = extract_unique4, .all = TRUE){
   # Data preparation, before the computations for the cube creation
   d <- prepare_data(.data = .data, .variables = .variables, .total = .total, 

@@ -4,8 +4,8 @@
 \alias{dcc6}
 \title{Data cube creation}
 \usage{
-dcc6(.data, .variables, .funs_list = list(n = ~n()), .total = "Totale",
-  order_type = extract_unique4, .all = TRUE)
+dcc6(.data, .variables, .funs_list = list(n = ~dplyr::n()),
+  .total = "Totale", order_type = extract_unique4, .all = TRUE)
 }
 \arguments{
 \item{.data}{data frame to be processed.}
@@ -30,12 +30,12 @@ Data cube creation
 \examples{
 dcc6(invented_wages,
      .variables = c("gender", "sector"), 
-     .funs_list = list(n = ~n()),
+     .funs_list = list(n = ~dplyr::n()),
      .all = TRUE)
      
 dcc6(invented_wages,
      .variables = c("gender", "sector"), 
-     .funs_list = list(n = ~n()),
+     .funs_list = list(n = ~dplyr::n()),
      .all = FALSE)
 
 }
