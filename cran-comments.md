@@ -7,7 +7,7 @@
 
 ## R CMD check results
 
-On linx, both locally and on travis-ci, there were
+On linux, both locally and on travis-ci, there were
 
 0 errors | 0 warnings | 0 notes
 
