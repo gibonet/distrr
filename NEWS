@@ -1,3 +1,11 @@
+distrr 0.0.5.9000
+----------------------------------------------------------------
+
+* new function: dcc6_fixed(). Same as dcc6() but with the 
+  possibility to choose a variable for which the total will not
+  be estimated (argument fixed_variable)
+
+
 distrr 0.0.5
 ----------------------------------------------------------------
 

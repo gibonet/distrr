@@ -45,7 +45,8 @@ dcc6_fixed <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()),
                                    levels = levels_fixed_variable)
   
   cube <- cube %>%
-    complete2_(.variables)
+    complete2_(.variables) %>% 
+    arrange2_(.variables)
   
   attributes(cube)[[".variables"]] <- .variables
   attributes(cube)[["fixed_variable"]] <- fixed_variable
