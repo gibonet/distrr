@@ -14,7 +14,7 @@ Imports:
     utils,
     stats,
     tidyr (>= 0.7.0)
-Version: 0.0.5
+Version: 0.0.5.9000
 License: GPL-2
 URL: https://gibonet.github.io/distrr, https://github.com/gibonet/distrr
 Authors@R: c(
@@ -34,3 +34,4 @@ Collate:
   "distrr_funs.R"
   "dcc_new.R"
   "wq_df.R"
+  "dcc6_fixed.R"
