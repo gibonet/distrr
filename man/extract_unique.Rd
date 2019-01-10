@@ -5,6 +5,7 @@
 \alias{extract_unique2}
 \alias{extract_unique3}
 \alias{extract_unique4}
+\alias{extract_unique5}
 \title{Functions to be used in conjunction with 'dcc' family}
 \usage{
 extract_unique(df)
@@ -14,6 +15,8 @@ extract_unique2(df)
 extract_unique3(df)
 
 extract_unique4(df)
+
+extract_unique5(df)
 }
 \arguments{
 \item{df}{a data frame}
