@@ -136,3 +136,22 @@ extract_unique4 <- function(df){
 }
 
 
+#' @rdname extract_unique
+#' @export
+extract_unique5 <- function(df){
+  are_factors <- where(is.factor, df)
+  res <- vector(mode = "list", length = length(are_factors))
+  
+  for(i in seq_along(df)){
+    
+    if(are_factors[i]){
+      res[[i]] <- levels(df[[i]])
+      res[[i]] <- res[[i]][res[[i]] %in% unique(as.character(df[[i]]))]
+    }else{
+      res[[i]] <- sort(unique(as.character(df[[i]])))
+    }
+    
+  }
+  return(res)
+}
+
