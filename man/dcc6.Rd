@@ -9,7 +9,7 @@ dcc6(.data, .variables, .funs_list = list(n = ~dplyr::n()),
   .total = "Totale", order_type = extract_unique4, .all = TRUE)
 
 dcc6_fixed(.data, .variables, .funs_list = list(n = ~dplyr::n()),
-  .total = "Totale", order_type = extract_unique5,
+  .total = "Totale", order_type = extract_unique5, .all = TRUE,
   fixed_variable = NULL)
 }
 \arguments{
