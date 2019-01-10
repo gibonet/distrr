@@ -52,6 +52,7 @@ dcc6_fixed <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()),
   # Reordering columns, creating factors, arranging rows, ...
   cube <- finish_cube(joint_all = cube, .variables = .variables,
                       l_lev = l_lev, l = l)
+  cube[[fixed_variable]] <- droplevels(cube[[fixed_variable]])
   
   
   attributes(cube)[[".variables"]] <- .variables
