@@ -5,7 +5,7 @@
 #' @rdname dcc6
 #' @export
 dcc6_fixed <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()), 
-                       .total = "Totale", order_type = extract_unique4, 
+                       .total = "Totale", order_type = extract_unique5, 
                        fixed_variable = NULL){
   
   if(is.null(fixed_variable)){
