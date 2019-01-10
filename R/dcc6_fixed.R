@@ -42,7 +42,7 @@ dcc6_fixed <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()),
   levels_fixed_variable <- .data[ , fixed_variable, drop = FALSE] %>%
     order_type() %>% unlist()
   cube[[fixed_variable]] <- factor(cube[[fixed_variable]], 
-                                   levels = levels_fixed_variable)
+                                   levels = unique(levels_fixed_variable))
   
   cube <- cube %>%
     complete2_(.variables) %>% 
