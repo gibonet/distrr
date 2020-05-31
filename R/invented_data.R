@@ -12,7 +12,7 @@
 #' there is a column with the sampling weights.
 #'
 #'
-#' @format A data frame with 1000 rows and 5 variables:
+#' @format A data frame (tibble) with 1000 rows and 5 variables:
 #' \describe{
 #'   \item{\code{gender}}{gender of the worker (\code{men} or \code{women})}
 #'   \item{\code{sector}}{economic sector where the worker is employed (\code{secondary} or \code{tertiary})}

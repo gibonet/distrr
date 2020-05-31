@@ -1,3 +1,13 @@
+
+distrr 0.0.5.9001
+----------------------------------------------------------------
+
+* data "invented_wages" has been recreated with tibble::new_tibble().
+  Now invented_wages has class "tbl_df" "tbl" "data.frame", while
+  before it had class "tbl_df" "data.frame". This should fix 
+  issue #1.
+
+
 distrr 0.0.5.9000
 ----------------------------------------------------------------
 

@@ -5,12 +5,24 @@
 \alias{dcc6_fixed}
 \title{Data cube creation}
 \usage{
-dcc6(.data, .variables, .funs_list = list(n = ~dplyr::n()),
-  .total = "Totale", order_type = extract_unique4, .all = TRUE)
+dcc6(
+  .data,
+  .variables,
+  .funs_list = list(n = ~dplyr::n()),
+  .total = "Totale",
+  order_type = extract_unique4,
+  .all = TRUE
+)
 
-dcc6_fixed(.data, .variables, .funs_list = list(n = ~dplyr::n()),
-  .total = "Totale", order_type = extract_unique5, .all = TRUE,
-  fixed_variable = NULL)
+dcc6_fixed(
+  .data,
+  .variables,
+  .funs_list = list(n = ~dplyr::n()),
+  .total = "Totale",
+  order_type = extract_unique5,
+  .all = TRUE,
+  fixed_variable = NULL
+)
 }
 \arguments{
 \item{.data}{data frame to be processed.}

@@ -3,7 +3,6 @@
 \docType{package}
 \name{distrr}
 \alias{distrr}
-\alias{distrr-package}
 \title{Estimate and manage empirical distributions}
 \description{
 Tools to estimate and manage empirical distributions,

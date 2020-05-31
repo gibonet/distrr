@@ -14,13 +14,13 @@ Imports:
     utils,
     stats,
     tidyr (>= 0.7.0)
-Version: 0.0.5.9000
+Version: 0.0.5.9001
 License: GPL-2
 URL: https://gibonet.github.io/distrr, https://github.com/gibonet/distrr
 Authors@R: c(
   person("Sandro", "Petrillo Burri", email = "gibo.gaf@gmail.com", role = c("aut", "cre")))
 Maintainer: Sandro Petrillo Burri <gibo.gaf@gmail.com>
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Encoding: UTF-8
 LazyData: yes
 Collate:
