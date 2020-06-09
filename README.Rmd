@@ -49,8 +49,8 @@ install.packages("distrr")
 
 
 # Or the development version from GitHub:
-# install.packages("devtools")
-devtools::install_github("gibonet/distrr")
+# install.packages("remotes")
+remotes::install_github("gibonet/distrr")
 ```
 
 
