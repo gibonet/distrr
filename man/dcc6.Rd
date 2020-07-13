@@ -38,7 +38,7 @@ that includes all the observations of a variable (default: \code{"Totale"}).}
 \item{order_type}{a function like \code{\link{extract_unique}} or 
 \code{\link{extract_unique2}}.}
 
-\item{.all}{logical, indicating if functions' have to be evaluated on the 
+\item{.all}{logical, indicating if functions have to be evaluated on the 
 complete dataset.}
 
 \item{fixed_variable}{name of the variable for which you do not want to estimate the total}

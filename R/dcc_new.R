@@ -81,7 +81,8 @@ joint_all_ <- function(.data, .variables, .fun = jointfun_, .total = "Totale",
   }
   
   # trasforma una nested list in una lista classica
-  joint_all <- dplyr::combine(joint_all)
+  # joint_all <- dplyr::combine(joint_all)
+  joint_all <- unlist(joint_all, recursive = FALSE)
   
   # Aggiunge le colonne mancanti alle distribuzioni marginali e 
   # joint-conditionals (impostando il valore alla stringa .total). 
@@ -197,8 +198,9 @@ joint_all_funs_ <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()
   }
 
   # trasforma una nested list in una lista classica  
-  joint_all <- dplyr::combine(joint_all)
-  
+  # joint_all <- dplyr::combine(joint_all)
+  joint_all <- unlist(joint_all, recursive = FALSE)
+
   # Aggiunge le colonne mancanti alle distribuzioni marginali e joint-conditionals
   # (impostando il valore a "Totale"). 
   for(k in seq_along(joint_all)){
@@ -234,7 +236,7 @@ joint_all_funs_ <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()
 #'  that includes all the observations of a variable (default: \code{"Totale"}).
 #' @param order_type a function like \code{\link{extract_unique}} or 
 #'    \code{\link{extract_unique2}}.
-#' @param .all logical, indicating if functions' have to be evaluated on the 
+#' @param .all logical, indicating if functions have to be evaluated on the 
 #'   complete dataset.
 #'   
 #' @examples 

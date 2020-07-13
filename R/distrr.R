@@ -13,7 +13,7 @@
 #' @import dplyr
 #' @importFrom utils combn
 #' @importFrom stats na.omit setNames quantile
-#' @importFrom tidyr expand expand_ complete_
+#' @importFrom tidyr expand complete
 NULL
 
 # Sostituisco

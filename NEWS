@@ -1,3 +1,10 @@
+distrr 0.0.5.9002
+----------------------------------------------------------------
+
+* dplyr::combine() (deprecated) has been replaced with 
+  base::unlist(..., recursive = FALSE) in internal functions (not exported) 
+  joint_all_() and joint_all_funs_(). 
+
 
 distrr 0.0.5.9001
 ----------------------------------------------------------------

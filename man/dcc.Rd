@@ -40,7 +40,7 @@ that includes all the observations of a variable (default: \code{"Totale"}).}
 complete dataset.}
 }
 \value{
-a data cube, with a column for each cateogrical variable used, and a row for each combination of all the categorical variables' modalities. In addition to all the modalities, each variable will also have a "Total" possibility, which includes all the others. The data cube will contain marginal, conditional and joint empirical distributions...
+a data cube, with a column for each cateogorical variable used, and a row for each combination of all the categorical variables' modalities. In addition to all the modalities, each variable will also have a "Total" possibility, which includes all the others. The data cube will contain marginal, conditional and joint empirical distributions...
 }
 \description{
 Data cube creation (dcc)

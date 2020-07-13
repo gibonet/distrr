@@ -37,7 +37,7 @@ wq <- function(x, weights, probs = c(0.5)){
 #'     (\code{c("var1", "var2")}).
 #' @param .fun function to apply to each piece (default: \code{\link{jointfun_}})
 #' @param ... additional functions passed to \code{.fun}.
-#' @return a data cube, with a column for each cateogrical variable used, and a row for each combination of all the categorical variables' modalities. In addition to all the modalities, each variable will also have a "Total" possibility, which includes all the others. The data cube will contain marginal, conditional and joint empirical distributions...
+#' @return a data cube, with a column for each cateogorical variable used, and a row for each combination of all the categorical variables' modalities. In addition to all the modalities, each variable will also have a "Total" possibility, which includes all the others. The data cube will contain marginal, conditional and joint empirical distributions...
 #' @examples
 #' data("invented_wages")
 #' str(invented_wages)
