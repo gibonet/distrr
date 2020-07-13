@@ -16,8 +16,13 @@ dcc6_fixed <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()),
     stopifnot(fixed_variable %in% .variables)
     stopifnot(is.character(fixed_variable) & length(fixed_variable) == 1)
     
-    .data[[fixed_variable]] <- as.character(.data[[fixed_variable]])
-    fixed_values <- sort(unique(.data[[fixed_variable]]))
+    if(!is.factor(.data[[fixed_variable]])){
+      .data[[fixed_variable]] <- as.character(.data[[fixed_variable]])
+      fixed_values <- sort(unique(.data[[fixed_variable]]))
+    }else{
+      fixed_values <- levels(.data[[fixed_variable]])
+    }
+    
     fixed_values <- fixed_values[!is.na(fixed_values)]
     
     # Data preparation, before the computations for the cube creation
