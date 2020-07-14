@@ -13,7 +13,9 @@ On linux, both locally and on travis-ci, there were
 
 On win-builder:
 
-Status: OK
+* R-oldrelease (3.6.3), Status: OK
+* R-release (4.0.2), Status: OK
+* R-devel (4.1.0), Status: OK
 
 
 ## Reverse dependencies
