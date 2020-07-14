@@ -1,3 +1,19 @@
+distrr 0.0.6
+----------------------------------------------------------------
+
+* new CRAN submission.  
+* new function: dcc6_fixed(). Same as dcc6() but with the 
+  possibility to choose a variable for which the total will not
+  be estimated (argument fixed_variable)
+* data "invented_wages" has been recreated with tibble::new_tibble().
+  Now invented_wages has class "tbl_df" "tbl" "data.frame", while
+  before it had class "tbl_df" "data.frame". This should fix 
+  issue #1.
+* dplyr::combine() (deprecated) has been replaced with 
+  base::unlist(..., recursive = FALSE) in internal functions (not exported) 
+  joint_all_() and joint_all_funs_(). 
+
+
 distrr 0.0.5.9002
 ----------------------------------------------------------------
 
