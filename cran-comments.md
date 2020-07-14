@@ -1,8 +1,8 @@
 
 ## Test environments
 
-* local manjaro linux, R 3.5.2
-* ubuntu 14.04.5 LTS (on travis-ci), R 3.5.1, R-oldrel, R-devel.
+* local manjaro linux, R 4.0.1
+* ubuntu 16.04.6 LTS (on travis-ci), R 4.0.0, R-oldrel, R-devel.
 * win-builder (devel)
 
 ## R CMD check results
