@@ -58,7 +58,7 @@ remotes::install_github("gibonet/distrr")
 
 Consider the `invented_wages` dataset:
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(distrr)
 str(invented_wages)
 ```

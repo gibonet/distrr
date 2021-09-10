@@ -46,8 +46,6 @@ Consider the `invented_wages` dataset:
 
 ``` r
 library(distrr)
-#> Warning: replacing previous import 'vctrs::data_frame' by 'tibble::data_frame'
-#> when loading 'dplyr'
 str(invented_wages)
 #> tibble [1,000 × 5] (S3: tbl_df/tbl/data.frame)
 #>  $ gender        : Factor w/ 2 levels "men","women": 1 2 1 2 1 1 1 2 2 2 ...
