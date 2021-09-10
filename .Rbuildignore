@@ -6,4 +6,5 @@
 ^cran-comments\.md$
 ^docs$
 ^_pkgdown\.yaml
+^\.github
 
