@@ -70,7 +70,8 @@ with [dplyr](https://cran.r-project.org/package=dplyr) we can do:
 library(dplyr)
 invented_wages %>%
   group_by(gender) %>%
-  summarise(n = n(), av_wage = mean(wage))
+  summarise(n = n(), av_wage = mean(wage)) %>%
+  ungroup()
 ```
 
 We can estimate the same statistics but grouped by education by changing the argument inside `group_by`:
@@ -78,7 +79,8 @@ We can estimate the same statistics but grouped by education by changing the arg
 ```{r}
 invented_wages %>%
   group_by(education) %>%
-  summarise(n = n(), av_wage = mean(wage))
+  summarise(n = n(), av_wage = mean(wage)) %>%
+  ungroup()
 ```
 
 and estimate the statistics by gender and education including both variables in `group_by`:
@@ -86,7 +88,8 @@ and estimate the statistics by gender and education including both variables in 
 ```{r}
 invented_wages %>%
   group_by(gender, education) %>%
-  summarise(n = n(), av_wage = mean(wage))
+  summarise(n = n(), av_wage = mean(wage)) %>%
+  ungroup()
 ```
 
 
