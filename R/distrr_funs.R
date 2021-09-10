@@ -12,8 +12,10 @@
 #' wq(x = rnorm(100), weights = runif(100))
 #' @export
 wq <- function(x, weights, probs = c(0.5)){
-  if(missing(weights))
-    return(quantile(x, probs = probs, na.rm = TRUE))
+  if(missing(weights)) {
+    weights <- rep(1L, length(x))
+  }
+
   ord <- order(x)
   cum.w <- cumsum(weights[ord])[!is.na(x)]/sum(weights[!is.na(x)])
   tmpS <- data.frame(matrix(rep(NA, 2 * length(probs)), nrow = 2))
