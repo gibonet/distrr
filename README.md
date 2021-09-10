@@ -1,14 +1,12 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-distrr
-======
+# distrr
 
 [![Travis-CI Build
 Status](https://travis-ci.org/gibonet/distrr.svg?branch=master)](https://travis-ci.org/gibonet/distrr)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
 
-Overview
-========
+# Overview
 
 distrr provides some tools to estimate and manage empirical
 distributions. In particular, one of the main features of distrr is the
@@ -32,31 +30,31 @@ operation is done for each possible combination of the variables used
 for grouping. The result will be a data frame in “tidy form”. See some
 examples in the Usage section below.
 
-Installation
-============
+# Installation
 
     # From CRAN
     install.packages("distrr")
 
 
     # Or the development version from GitHub:
-    # install.packages("devtools")
-    devtools::install_github("gibonet/distrr")
+    # install.packages("remotes")
+    remotes::install_github("gibonet/distrr")
 
-Usage
-=====
+# Usage
 
 Consider the `invented_wages` dataset:
 
 ``` r
 library(distrr)
+#> Warning: replacing previous import 'vctrs::data_frame' by 'tibble::data_frame'
+#> when loading 'dplyr'
 str(invented_wages)
-#> Classes 'tbl_df' and 'data.frame':   1000 obs. of  5 variables:
+#> tibble [1,000 × 5] (S3: tbl_df/tbl/data.frame)
 #>  $ gender        : Factor w/ 2 levels "men","women": 1 2 1 2 1 1 1 2 2 2 ...
 #>  $ sector        : Factor w/ 2 levels "secondary","tertiary": 2 1 2 2 1 1 2 1 2 1 ...
 #>  $ education     : Factor w/ 3 levels "I","II","III": 3 2 2 2 2 1 3 1 2 2 ...
-#>  $ wage          : num  8400 4200 5100 7400 4300 4900 5400 2900 4500 3000 ...
-#>  $ sample_weights: num  105 32 36 12 21 46 79 113 34 32 ...
+#>  $ wage          : num [1:1000] 8400 4200 5100 7400 4300 4900 5400 2900 4500 3000 ...
+#>  $ sample_weights: num [1:1000] 105 32 36 12 21 46 79 113 34 32 ...
 ```
 
 If we want to count the number of observations and estimate the average
@@ -67,7 +65,8 @@ we can do:
 library(dplyr)
 invented_wages %>%
   group_by(gender) %>%
-  summarise(n = n(), av_wage = mean(wage))
+  summarise(n = n(), av_wage = mean(wage)) %>%
+  ungroup()
 #> # A tibble: 2 x 3
 #>   gender     n av_wage
 #>   <fct>  <int>   <dbl>
@@ -81,7 +80,9 @@ the argument inside `group_by`:
 ``` r
 invented_wages %>%
   group_by(education) %>%
-  summarise(n = n(), av_wage = mean(wage))
+  summarise(n = n(), av_wage = mean(wage)) %>%
+  ungroup()
+#> `summarise()` ungrouping output (override with `.groups` argument)
 #> # A tibble: 3 x 3
 #>   education     n av_wage
 #>   <fct>     <int>   <dbl>
@@ -96,9 +97,10 @@ variables in `group_by`:
 ``` r
 invented_wages %>%
   group_by(gender, education) %>%
-  summarise(n = n(), av_wage = mean(wage))
+  summarise(n = n(), av_wage = mean(wage)) %>%
+  ungroup()
+#> `summarise()` regrouping output by 'gender' (override with `.groups` argument)
 #> # A tibble: 6 x 4
-#> # Groups:   gender [2]
 #>   gender education     n av_wage
 #>   <fct>  <fct>     <int>   <dbl>
 #> 1 men    I            60   4627.
