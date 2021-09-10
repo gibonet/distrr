@@ -1,3 +1,10 @@
+distrr 0.0.6.9000
+----------------------------------------------------------------
+
+* fixed issue #2: in case weights are missing, distrr::wq() now
+  uses equal weights (instead of using stats::quantile())
+
+
 distrr 0.0.6
 ----------------------------------------------------------------
 
