@@ -14,7 +14,7 @@ Imports:
     utils,
     stats,
     tidyr (>= 0.7.0)
-Version: 0.0.6
+Version: 0.0.6.9000
 License: GPL-2
 URL: https://gibonet.github.io/distrr, https://github.com/gibonet/distrr
 Authors@R: c(
