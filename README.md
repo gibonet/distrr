@@ -3,6 +3,8 @@
 # distrr
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
+[![R build
+status](https://github.com/gibonet/distrr/workflows/R-CMD-check/badge.svg)](https://github.com/gibonet/distrr/actions)
 
 # Overview
 
