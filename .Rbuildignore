@@ -8,3 +8,4 @@
 ^_pkgdown\.yaml
 ^\.github
 
+^\.github$

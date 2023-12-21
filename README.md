@@ -2,9 +2,8 @@
 
 # distrr
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
-[![R build
-status](https://github.com/gibonet/distrr/workflows/R-CMD-check/badge.svg)](https://github.com/gibonet/distrr/actions)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
+[![R-CMD-check](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml)
 
 # Overview
 
@@ -47,7 +46,7 @@ Consider the `invented_wages` dataset:
 ``` r
 library(distrr)
 str(invented_wages)
-#> tibble [1,000 × 5] (S3: tbl_df/tbl/data.frame)
+#> tibble [1,000 x 5] (S3: tbl_df/tbl/data.frame)
 #>  $ gender        : Factor w/ 2 levels "men","women": 1 2 1 2 1 1 1 2 2 2 ...
 #>  $ sector        : Factor w/ 2 levels "secondary","tertiary": 2 1 2 2 1 1 2 1 2 1 ...
 #>  $ education     : Factor w/ 3 levels "I","II","III": 3 2 2 2 2 1 3 1 2 2 ...
@@ -80,7 +79,6 @@ invented_wages %>%
   group_by(education) %>%
   summarise(n = n(), av_wage = mean(wage)) %>%
   ungroup()
-#> `summarise()` ungrouping output (override with `.groups` argument)
 #> # A tibble: 3 x 3
 #>   education     n av_wage
 #>   <fct>     <int>   <dbl>
@@ -97,7 +95,8 @@ invented_wages %>%
   group_by(gender, education) %>%
   summarise(n = n(), av_wage = mean(wage)) %>%
   ungroup()
-#> `summarise()` regrouping output by 'gender' (override with `.groups` argument)
+#> `summarise()` has grouped output by 'gender'. You can override using the
+#> `.groups` argument.
 #> # A tibble: 6 x 4
 #>   gender education     n av_wage
 #>   <fct>  <fct>     <int>   <dbl>
