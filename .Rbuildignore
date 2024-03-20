@@ -11,3 +11,5 @@
 ^\.github$
 
 check.R
+distrr-report.html
+lib/
