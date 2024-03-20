@@ -3,6 +3,11 @@
 # git push -u gitlab master
 # git push -u origin master
 
+# git checkout -b progressbar
+# git branch
+# git push --set-upstream gitlab progressbar
+# git push --set-upstream origin progressbar
+
 # devtools --------
 library(devtools)
 
@@ -18,3 +23,47 @@ build()
 install(upgrade = "never")
 
 
+
+
+# Trials ----------
+
+# dcc6 step by step
+.data <- invented_wages
+.variables <- c("gender", "education")
+.total <- "TOTAL"
+order_type <- extract_unique4
+
+.funs_list <- list(n = ~dplyr::n())
+.all <- TRUE
+
+d <- prepare_data(
+  .data = .data, 
+  .variables = .variables, 
+  .total = .total, 
+  order_type = order_type
+)
+
+l <- d[["l"]]; data_new <- d[["data_new"]]; l_lev <- d[["l_lev"]]
+
+joint_all <- joint_all_funs_(
+  data_new, 
+  .variables = .variables, 
+  .funs_list = .funs_list, 
+  .total = .total, .all = .all
+)
+
+joint_all_final <- finish_cube(
+  joint_all = joint_all, 
+  .variables = .variables,
+  l_lev = l_lev, 
+  l = l
+)
+
+attributes(joint_all_final)[[".variables"]] <- .variables
+
+tmp <- dcc6(.data, .variables, .funs_list, .total, order_type, .all)
+
+tmp <- dcc6_fixed(
+  .data, .variables, .funs_list, .total, order_type, .all, 
+  fixed_variable = "gender"
+)
