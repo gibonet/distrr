@@ -38,8 +38,8 @@ dcc6_fixed <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()),
     
     for(i in seq_along(cube_list)){
       to_keep <- paste0(fixed_variable, " == '", fixed_values[i], "'")
-      cube_list[[i]] <- data_new %>%
-        filter2_(.dots = to_keep) %>%
+      cube_list[[i]] <- data_new |>
+        filter2_(.dots = to_keep) |>
         joint_all_funs_(.variables = .variables[!.variables %in% fixed_variable], 
                         .funs_list = .funs_list, .total = .total, .all = .all)
       
@@ -52,7 +52,7 @@ dcc6_fixed <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()),
     no_vars <- cols[!cols %in% .variables]
     cols <- c(.variables, no_vars)
     
-    cube <- cube %>% select2_(cols)
+    cube <- cube |> select2_(cols)
     
     # Last operations, after the creation of the data cube.
     # Reordering columns, creating factors, arranging rows, ...

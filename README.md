@@ -2,7 +2,7 @@
 
 # distrr
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
 [![R-CMD-check](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml)
 
 # Overview
@@ -20,8 +20,8 @@ The main functions to create a data cube are `dcc5()` and `dcc6()`
 
 The data cube creation is like:
 
-    data %>%
-      group_by(some variables) %>%
+    data |>
+      group_by(some variables) |>
       summarise(one or more estimated statistic)
 
 in [dplyr](https://cran.r-project.org/package=dplyr) terms, but the
@@ -46,7 +46,7 @@ Consider the `invented_wages` dataset:
 ``` r
 library(distrr)
 str(invented_wages)
-#> tibble [1,000 x 5] (S3: tbl_df/tbl/data.frame)
+#> tibble [1,000 × 5] (S3: tbl_df/tbl/data.frame)
 #>  $ gender        : Factor w/ 2 levels "men","women": 1 2 1 2 1 1 1 2 2 2 ...
 #>  $ sector        : Factor w/ 2 levels "secondary","tertiary": 2 1 2 2 1 1 2 1 2 1 ...
 #>  $ education     : Factor w/ 3 levels "I","II","III": 3 2 2 2 2 1 3 1 2 2 ...
@@ -60,11 +60,11 @@ we can do:
 
 ``` r
 library(dplyr)
-invented_wages %>%
-  group_by(gender) %>%
-  summarise(n = n(), av_wage = mean(wage)) %>%
+invented_wages |>
+  group_by(gender) |>
+  summarise(n = n(), av_wage = mean(wage)) |>
   ungroup()
-#> # A tibble: 2 x 3
+#> # A tibble: 2 × 3
 #>   gender     n av_wage
 #>   <fct>  <int>   <dbl>
 #> 1 men      547   5435.
@@ -75,11 +75,11 @@ We can estimate the same statistics but grouped by education by changing
 the argument inside `group_by`:
 
 ``` r
-invented_wages %>%
-  group_by(education) %>%
-  summarise(n = n(), av_wage = mean(wage)) %>%
+invented_wages |>
+  group_by(education) |>
+  summarise(n = n(), av_wage = mean(wage)) |>
   ungroup()
-#> # A tibble: 3 x 3
+#> # A tibble: 3 × 3
 #>   education     n av_wage
 #>   <fct>     <int>   <dbl>
 #> 1 I           172   3774.
@@ -91,13 +91,13 @@ and estimate the statistics by gender and education including both
 variables in `group_by`:
 
 ``` r
-invented_wages %>%
-  group_by(gender, education) %>%
-  summarise(n = n(), av_wage = mean(wage)) %>%
+invented_wages |>
+  group_by(gender, education) |>
+  summarise(n = n(), av_wage = mean(wage)) |>
   ungroup()
 #> `summarise()` has grouped output by 'gender'. You can override using the
 #> `.groups` argument.
-#> # A tibble: 6 x 4
+#> # A tibble: 6 × 4
 #>   gender education     n av_wage
 #>   <fct>  <fct>     <int>   <dbl>
 #> 1 men    I            60   4627.
@@ -111,9 +111,9 @@ invented_wages %>%
 With `dcc5` we can perform all the steps above with one call:
 
 ``` r
-invented_wages %>% 
+invented_wages |> 
   dcc5(.variables = c("gender", "education"), av_wage = ~mean(wage))
-#> # A tibble: 12 x 4
+#> # A tibble: 12 × 4
 #>    gender education     n av_wage
 #>  * <fct>  <fct>     <int>   <dbl>
 #>  1 Totale Totale     1000   4985.
@@ -133,12 +133,12 @@ invented_wages %>%
 The resulting data frame contains a column for each grouping variable,
 and the estimations of all the combinations of the variables:
 
--   by gender
--   by education
--   by gender and education
--   plus the same statistics for all the dataset, without any grouping
-    (this can be set with the argument `.all`, which by default is
-    `TRUE`).
+- by gender
+- by education
+- by gender and education
+- plus the same statistics for all the dataset, without any grouping
+  (this can be set with the argument `.all`, which by default is
+  `TRUE`).
 
 Note that in the result there are some rows where the variables take the
 value `"Totale"`. When a variable has this value, it means that the
@@ -162,9 +162,9 @@ list_of_funs <- list(
 vars <- c("gender", "education")
 
 # And create the data cube with dcc6
-invented_wages %>% 
+invented_wages |> 
   dcc6(.variables = vars, .funs_list = list_of_funs, .total = "TOTAL")
-#> # A tibble: 12 x 5
+#> # A tibble: 12 × 5
 #>    gender education     n av_wage weighted_av_wage
 #>  * <fct>  <fct>     <int>   <dbl>            <dbl>
 #>  1 TOTAL  TOTAL      1000   4985.            4645.

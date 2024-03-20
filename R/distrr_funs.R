@@ -113,7 +113,7 @@ only_joint <- function(.cube,
   dots <- paste(tmp, collapse = " & ")
   
   
-  .cube %>%
+  .cube |>
     filter2_(.dots = dots)
 }
 

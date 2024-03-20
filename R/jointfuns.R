@@ -13,9 +13,9 @@
 #' str(tmp)
 #' @export
 jointfun_ <- function(.data, .variables, ...){
-  .data %>%
-    gby_(.variables) %>%
-    summarise2_(n = ~dplyr::n(), ...) %>%
+  .data |>
+    gby_(.variables) |>
+    summarise2_(n = ~dplyr::n(), ...) |>
     stats::na.omit()
 }
 

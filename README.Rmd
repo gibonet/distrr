@@ -30,8 +30,8 @@ The main functions to create a data cube are `dcc5()` and `dcc6()` (`dcc` stands
 The data cube creation is like:
 
 ```
-data %>%
-  group_by(some variables) %>%
+data |>
+  group_by(some variables) |>
   summarise(one or more estimated statistic)
 ```
 
@@ -68,27 +68,27 @@ with [dplyr](https://cran.r-project.org/package=dplyr) we can do:
 
 ```{r message=FALSE, warning=FALSE}
 library(dplyr)
-invented_wages %>%
-  group_by(gender) %>%
-  summarise(n = n(), av_wage = mean(wage)) %>%
+invented_wages |>
+  group_by(gender) |>
+  summarise(n = n(), av_wage = mean(wage)) |>
   ungroup()
 ```
 
 We can estimate the same statistics but grouped by education by changing the argument inside `group_by`:
 
 ```{r}
-invented_wages %>%
-  group_by(education) %>%
-  summarise(n = n(), av_wage = mean(wage)) %>%
+invented_wages |>
+  group_by(education) |>
+  summarise(n = n(), av_wage = mean(wage)) |>
   ungroup()
 ```
 
 and estimate the statistics by gender and education including both variables in `group_by`:
 
 ```{r}
-invented_wages %>%
-  group_by(gender, education) %>%
-  summarise(n = n(), av_wage = mean(wage)) %>%
+invented_wages |>
+  group_by(gender, education) |>
+  summarise(n = n(), av_wage = mean(wage)) |>
   ungroup()
 ```
 
@@ -96,7 +96,7 @@ invented_wages %>%
 With `dcc5` we can perform all the steps above with one call:
 
 ```{r}
-invented_wages %>% 
+invented_wages |> 
   dcc5(.variables = c("gender", "education"), av_wage = ~mean(wage))
 ```
 
@@ -124,7 +124,7 @@ list_of_funs <- list(
 vars <- c("gender", "education")
 
 # And create the data cube with dcc6
-invented_wages %>% 
+invented_wages |> 
   dcc6(.variables = vars, .funs_list = list_of_funs, .total = "TOTAL")
 ```
 

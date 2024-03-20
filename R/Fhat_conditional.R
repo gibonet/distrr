@@ -14,11 +14,11 @@
 #' @export              
 Fhat_conditional_ <- function(.data, .variables, x, weights){
   group_all <- c(.variables, x)
-  .data %>%
-    gby_(group_all) %>%
-    sumx_(weights) %>%
-    stats::na.omit() %>%
-    gby_(.variables) %>%
+  .data |>
+    gby_(group_all) |>
+    sumx_(weights) |>
+    stats::na.omit() |>
+    gby_(.variables) |>
     mutcumx_("wsum")
 }
 
@@ -35,10 +35,10 @@ Fhat_conditional_ <- function(.data, .variables, x, weights){
 #' Fhat_df_(invented_wages, "wage", "sample_weights")
 #' @export
 Fhat_df_ <- function(.data, x, weights){
-  .data %>%
-    gby_(x) %>%
-    sumx_(weights) %>%
-    dplyr::ungroup() %>%
-    stats::na.omit() %>%
+  .data |>
+    gby_(x) |>
+    sumx_(weights) |>
+    dplyr::ungroup() |>
+    stats::na.omit() |>
     mutcumx_("wsum")
 }

@@ -8,18 +8,18 @@
 
 # group_by_(.data, .dots = character)
 # gby_ <- function(.data, .variables){
-#   .data %>%
+#   .data |>
 #     dplyr::group_by_(.dots = .variables)
 # }
 # gby_(mtcars, c("vs", "am"))
-# gby_(mtcars, c("vs", "am", "mpg")) %>%
-#   summarise(wgroup = sum(cyl)) %>%
-#   gby_(c("vs", "am")) %>%
+# gby_(mtcars, c("vs", "am", "mpg")) |>
+#   summarise(wgroup = sum(cyl)) |>
+#   gby_(c("vs", "am")) |>
 #   mutate(wcum = cumsum(wgroup))
 
 gby_ <- function(.data, .variables){
   .variables <- lapply(.variables, as.symbol)
-  .data %>%
+  .data |>
     dplyr::group_by(!!! .variables)
 }
 # gby_(mtcars, c("cyl", "vs"))
@@ -29,21 +29,21 @@ gby_ <- function(.data, .variables){
 
 select2_ <- function(.data, .variables){
   .variables <- lapply(.variables, as.symbol)
-  .data %>%
+  .data |>
     dplyr::select(!!! .variables)
 }
-# mtcars %>% dplyr::select(mpg, vs)
-# mtcars %>% select2_(c("mpg", "vs"))
+# mtcars |> dplyr::select(mpg, vs)
+# mtcars |> select2_(c("mpg", "vs"))
 # prepare_data, finish_cube, finish_cube2
 
 
 arrange2_ <- function(.data, .variables){
   .variables <- lapply(.variables, as.symbol)
-  .data %>%
+  .data |>
     dplyr::arrange(!!! .variables)
 }
-# mtcars %>% arrange(mpg, vs)
-# mtcars %>% arrange2_(c("mpg", "vs"))
+# mtcars |> arrange(mpg, vs)
+# mtcars |> arrange2_(c("mpg", "vs"))
 # finish_cube, finish_cube2
 
 
@@ -62,7 +62,7 @@ summarise2_ <- function(.data, ...){
   dots <- compat_lazy_dots(dots = list(), rlang::caller_env(), ...)
   dplyr::summarise(.data, !!! dots)
 }
-# mtcars %>% summarise2_(n = ~n(), media = ~mean(mpg))
+# mtcars |> summarise2_(n = ~n(), media = ~mean(mpg))
 # jointfun_, joint_all_
 
 
@@ -70,7 +70,7 @@ summarise2_dots_ <- function(.data, .funs_list){
   dots <- compat_lazy_dots(dots = .funs_list, rlang::caller_env())
   dplyr::summarise(.data, !!! dots)
 }
-# mtcars %>% 
+# mtcars |> 
 #   summarise2_dots_(.funs_list = list(n = ~n(), m = ~mean(mpg)))
 # joint_all_funs_, joint_all_funs2_
 
@@ -85,7 +85,7 @@ sumx_ <- function(.data, x){
 
 mutcumx_ <- function(.data, x){
   x <- rlang::sym(x)
-  .data %>%
+  .data |>
     dplyr::mutate(wcum = cumsum(!! x), Fhat = cumsum(!! x) / sum(!! x))
 }
 # mutcumx_(mtcars, "cyl")
@@ -93,7 +93,7 @@ mutcumx_ <- function(.data, x){
 
 complete2_ <- function(.data, .variables){
   .variables <- lapply(.variables, rlang::sym)
-  .data %>%
+  .data |>
     tidyr::complete(!!! .variables)
 }
 

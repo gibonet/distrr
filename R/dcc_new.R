@@ -1,24 +1,26 @@
 
 # Data preparation, before the creation of the data cube
-prepare_data <- function(.data, .variables, .total = "Totale", 
-                         order_type = extract_unique4){
+prepare_data <- function(.data, 
+                         .variables, 
+                         .total = "Totale", 
+                         order_type = extract_unique4) {
   l <- length(.variables)
   .other_vars <- setdiff(colnames(.data), .variables)
   
   # Estrazione dei valori unici (in ordine di apparizione nei dati)
   # in una lista di lunghezza l (l_lev)
-  data_vars <- .data %>%
+  data_vars <- .data |>
     select2_(.variables)
   
-  l_lev <- data_vars %>%
+  l_lev <- data_vars |>
     order_type()
   l_lev <- lapply(l_lev, function(x) x <- unique(c(.total, x)))
   
   # Trasformo le .variables in character
-  data_vars <- data_vars %>% 
+  data_vars <- data_vars |> 
     dplyr::mutate_all(.funs = "as.character")
   
-  data_others <- .data %>%
+  data_others <- .data |>
     select2_(.other_vars)
   
   data_new <- dplyr::bind_cols(data_vars, data_others)
@@ -34,17 +36,17 @@ finish_cube <- function(joint_all, .variables, l_lev, l){
   dots_all <- colnames(joint_all)
   measures <- setdiff(dots_all, .variables)
   dots_all <- c(.variables, measures)
-  joint_all <- joint_all %>% select2_(dots_all)
+  joint_all <- joint_all |> select2_(dots_all)
   
   # Completamento delle righe per le quali non esistono combinazioni di
   # variabili nei dati
-  joint_all <- joint_all %>% 
+  joint_all <- joint_all |> 
     complete2_(.variables = .variables)
 
   # Trasformazione delle .variables in factor e assegnamento dei livelli
   # in base a l_lev
   options(drop = FALSE)
-  joint_all[ , .variables] <- joint_all[ , .variables] %>%
+  joint_all[ , .variables] <- joint_all[ , .variables] |>
     dplyr::mutate_all(.funs = "as.factor")
     
   for(i in 1:l){
@@ -92,14 +94,14 @@ joint_all_ <- function(.data, .variables, .fun = jointfun_, .total = "Totale",
   }
   
   # Unisce i data frame della lista joint_all in uno solo (uno sotto l'altro)
-  joint_all <- dplyr::bind_rows(joint_all) %>% dplyr::ungroup()
+  joint_all <- dplyr::bind_rows(joint_all) |> dplyr::ungroup()
   
   if(.all){
-    joint <- .data %>%
+    joint <- .data |>
       summarise2_(n = ~n(), ...)
     joint[ , .variables] <- .total  
     
-    joint_all <- dplyr::bind_rows(joint, joint_all) %>% dplyr::ungroup()
+    joint_all <- dplyr::bind_rows(joint, joint_all) |> dplyr::ungroup()
   }
   return(joint_all)
 }
@@ -110,7 +112,7 @@ remove_total <- function(.cube, .variables, .total = "Totale"){
   tmp <- paste0(.variables, " == '", .total, "'")
   dots <- paste(tmp, collapse = " & ")
   dots <- paste0("!(", dots, ")")
-  .cube %>% filter2_(.dots = dots)
+  .cube |> filter2_(.dots = dots)
 }
 
 ###############################################################################
@@ -190,9 +192,9 @@ joint_all_funs_ <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()
     joint <- vector(mode = "list", length = ncol(m_comb[[i]]))
     
     for(j in seq_along(joint)){
-      joint[[j]] <- .data %>%
-        gby_(.variables[m_comb[[i]][ , j]]) %>%
-        summarise2_dots_(.funs_list) %>%
+      joint[[j]] <- .data |>
+        gby_(.variables[m_comb[[i]][ , j]]) |>
+        summarise2_dots_(.funs_list) |>
         stats::na.omit()
     }
     joint_all[[i]] <- joint
@@ -210,14 +212,14 @@ joint_all_funs_ <- function(.data, .variables, .funs_list = list(n = ~dplyr::n()
   }
   
   # Unisce i data frame della lista joint_all in uno solo (uno sotto l'altro ...)
-  joint_all <- dplyr::bind_rows(joint_all) %>% dplyr::ungroup()
+  joint_all <- dplyr::bind_rows(joint_all) |> dplyr::ungroup()
   
   if(.all){
-    joint <- .data %>%
+    joint <- .data |>
       summarise2_dots_(.funs_list)
     
     joint[ , .variables] <- .total
-    joint_all <- dplyr::bind_rows(joint, joint_all) %>% dplyr::ungroup()
+    joint_all <- dplyr::bind_rows(joint, joint_all) |> dplyr::ungroup()
   }
   return(joint_all)
 }
@@ -294,9 +296,9 @@ joint_all_funs2_ <- function(.data, .list_variables, .funs_list = list(n = ~n())
   
   joint_all <- vector(mode = "list", length = l)
   for(i in 1:l){
-      joint_all[[i]] <- .data %>%
-        gby_(.list_variables[[i]]) %>%
-        summarise2_dots_(.funs_list) %>%
+      joint_all[[i]] <- .data |>
+        gby_(.list_variables[[i]]) |>
+        summarise2_dots_(.funs_list) |>
         stats::na.omit()
   }
   
@@ -315,7 +317,7 @@ joint_all_funs2_ <- function(.data, .list_variables, .funs_list = list(n = ~n())
   joint_all <- dplyr::bind_rows(joint_all)
   
   if(.all){
-    joint <- .data %>%
+    joint <- .data |>
       summarise2_dots_(.funs_list)
     
     joint[ , .variables] <- .total
@@ -332,17 +334,17 @@ finish_cube2 <- function(joint_all, .variables, l_lev, l){
   dots_all <- colnames(joint_all)
   measures <- setdiff(dots_all, .variables)
   dots_all <- c(.variables, measures)
-  joint_all <- joint_all %>% select2_(dots_all)
+  joint_all <- joint_all |> select2_(dots_all)
   
   # Completamento delle righe per le quali non esistono combinazioni di
   # variabili nei dati
-  # joint_all <- joint_all %>% 
+  # joint_all <- joint_all |> 
   #   tidyr::complete_(cols = .variables, fill = as.list(rep(NA, l)))
   
   # Trasformazione delle .variables in factor e assegnamento dei livelli
   # in base a l_lev
   options(drop = FALSE)
-  joint_all[ , .variables] <- joint_all[ , .variables] %>%
+  joint_all[ , .variables] <- joint_all[ , .variables] |>
     dplyr::mutate_all(.funs = "as.factor")
   
   for(i in 1:l){
@@ -378,14 +380,6 @@ dcc7 <- function(.data, .list_variables, .funs_list = list(n = ~n()), .total = "
   return(joint_all_final)
 }
 ###############################################################################
-
-
-
-
-
-
-
-
 
 
 
