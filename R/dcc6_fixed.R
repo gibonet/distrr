@@ -44,6 +44,7 @@ dcc6_fixed <- function(.data,
     
     cube_list <- vector(mode = "list", length = length(fixed_values))
     
+    pb <- utils::txtProgressBar(style = 3, max = l)
     for (i in seq_along(cube_list)) {
       to_keep <- paste0(fixed_variable, " == '", fixed_values[i], "'")
       
@@ -53,11 +54,15 @@ dcc6_fixed <- function(.data,
           .variables = .variables[!.variables %in% fixed_variable], 
           .funs_list = .funs_list, 
           .total = .total, 
-          .all = .all
+          .all = .all,
+          showProgress = FALSE
         )
+      
+      utils::setTxtProgressBar(pb, i)
       
       cube_list[[i]][[fixed_variable]] <- fixed_values[i]
     }
+    close(pb)
     
     cube <- dplyr::bind_rows(cube_list)
     
