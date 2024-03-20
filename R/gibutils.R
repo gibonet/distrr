@@ -65,7 +65,7 @@ where <- function(f, x) {
 extract_levels <- function(df) {
   are_fact <- where(is.factor, df)  # Vettore di TRUE/FALSE
   
-  l_lev <- lapply(df, levels)
+  l_lev <- lapply(df[, are_fact], levels)
   
   return(l_lev)
 }
