@@ -217,28 +217,33 @@ joint_all_funs_ <- function(.data,
   
   joint_all <- vector(mode = "list", length = l)
   
+  pb <- utils::txtProgressBar(style = 3, max = l)
   for (i in 1:l) {
     joint <- vector(mode = "list", length = ncol(m_comb[[i]]))
     
     for (j in seq_along(joint)) {
       joint[[j]] <- .data |>
-        gby_(.variables[m_comb[[i]][ , j]]) |>
+        gby_(.variables[m_comb[[i]][, j]]) |>
         summarise2_dots_(.funs_list) |>
         stats::na.omit()
     }
     
+    utils::setTxtProgressBar(pb, i)
+    
     joint_all[[i]] <- joint
   }
+  close(pb)
 
   # trasforma una nested list in una lista classica  
   # joint_all <- dplyr::combine(joint_all)
   joint_all <- unlist(joint_all, recursive = FALSE)
 
-  # Aggiunge le colonne mancanti alle distribuzioni marginali e joint-conditionals
+  # Aggiunge le colonne mancanti alle distribuzioni marginali e 
+  # joint-conditionals
   # (impostando il valore a "Totale"). 
   for (k in seq_along(joint_all)) {
     vars_missing <- setdiff(.variables, colnames(joint_all[[k]]))
-    joint_all[[k]][ , vars_missing] <- .total
+    joint_all[[k]][, vars_missing] <- .total
   }
   
   # Unisce i data frame della lista joint_all in uno solo (uno sotto l'altro ...)
