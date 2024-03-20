@@ -1,5 +1,7 @@
 
-#' @inheritParams dcc6
+## #' @inheritParams dcc6
+
+
 #' @param fixed_variable name of the variable for which you do not want to estimate the total
 #' 
 #' @rdname dcc6

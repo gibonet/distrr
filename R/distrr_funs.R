@@ -56,7 +56,6 @@ dcc <- function(.data, .variables, .fun = jointfun_, ...){
 
 
 
-#' @inheritParams dcc
 #' @param order_type a function like \code{\link{extract_unique}} or 
 #'    \code{\link{extract_unique2}}.
 #' 

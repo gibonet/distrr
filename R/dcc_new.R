@@ -115,7 +115,8 @@ remove_total <- function(.cube, .variables, .total = "Totale"){
 
 ###############################################################################
 
-#' @inheritParams dcc2
+## #' @inheritParams dcc2
+
 #' @param .total character string with the name to give to the subset of data
 #'  that includes all the observations of a variable (default: \code{"Totale"}).
 #' @param .all logical, indicating if functions' have to be evaluated on the 
