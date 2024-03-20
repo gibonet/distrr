@@ -78,6 +78,7 @@ joint_all_ <- function(.data,
   
   joint_all <- vector(mode = "list", length = l)
   
+  pb <- utils::txtProgressBar(style = 3, max = l)
   for (i in 1:l) {
     joint <- vector(mode = "list", length = ncol(m_comb[[i]]))
     
@@ -86,7 +87,10 @@ joint_all_ <- function(.data,
     }
     
     joint_all[[i]] <- joint
+    
+    utils::setTxtProgressBar(pb, i)
   }
+  close(pb)
   
   # trasforma una nested list in una lista classica
   # joint_all <- dplyr::combine(joint_all)
@@ -152,8 +156,12 @@ dcc5 <- function(.data,
                  .all = TRUE, 
                  ...) {
   # Data preparation, before the computations for the cube creation
-  d <- prepare_data(.data = .data, .variables = .variables, .total = .total, 
-                    order_type = order_type)
+  d <- prepare_data(
+    .data = .data, 
+    .variables = .variables, 
+    .total = .total, 
+    order_type = order_type
+  )
   
   # Computations for the cube creation
   l <- d[["l"]]; data_new <- d[["data_new"]]; l_lev <- d[["l_lev"]]
