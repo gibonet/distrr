@@ -23,6 +23,23 @@ build()
 install(upgrade = "never")
 
 
+# usethis ---------
+library(usethis)
+
+use_testthat()
+
+use_test("dcc")
+
+
+# covr::package_coverage() ------------
+rstudioapi::restartSession()
+library(covr)
+cov <- package_coverage()
+cov
+# as.data.frame(cov)
+# report()
+report(cov, file = "distrr-report.html")
+
 
 
 # Trials ----------
