@@ -211,13 +211,17 @@ joint_all_funs_ <- function(.data,
                             .variables, 
                             .funs_list = list(n = ~dplyr::n()), 
                             .total = "Totale", 
-                            .all = TRUE) {
+                            .all = TRUE,
+                            showProgress = TRUE) {
   l <- length(.variables)
   m_comb <- combn_l(l)
   
   joint_all <- vector(mode = "list", length = l)
   
-  pb <- utils::txtProgressBar(style = 3, max = l)
+  if (showProgress) {
+    pb <- utils::txtProgressBar(style = 3, max = l)
+  }
+  
   for (i in 1:l) {
     joint <- vector(mode = "list", length = ncol(m_comb[[i]]))
     
@@ -228,11 +232,11 @@ joint_all_funs_ <- function(.data,
         stats::na.omit()
     }
     
-    utils::setTxtProgressBar(pb, i)
+    if (showProgress) utils::setTxtProgressBar(pb, i)
     
     joint_all[[i]] <- joint
   }
-  close(pb)
+  if (showProgress) close(pb)
 
   # trasforma una nested list in una lista classica  
   # joint_all <- dplyr::combine(joint_all)
