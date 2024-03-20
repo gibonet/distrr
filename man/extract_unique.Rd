@@ -22,14 +22,15 @@ extract_unique5(df)
 \item{df}{a data frame}
 }
 \value{
-a list whose elements are character vectors of the unique values of each column
+a list whose elements are character vectors of the 
+    unique values of each column
 }
 \description{
 Functions to be used in conjunction with 'dcc' family
 }
 \examples{
 data("invented_wages")
-tmp <- extract_unique(df = invented_wages[ , c("gender", "sector")])
+tmp <- extract_unique(df = invented_wages[, c("gender", "sector")])
 tmp
 str(tmp)
 }
