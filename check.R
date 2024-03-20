@@ -67,3 +67,18 @@ tmp <- dcc6_fixed(
   .data, .variables, .funs_list, .total, order_type, .all, 
   fixed_variable = "gender"
 )
+
+# dcc5 step by step
+formals(dcc5)
+dcc5(.data, .variables, jointfun_, .total)
+dcc5(.data, .variables, jointfun_, .total, m = ~mean(wage))
+dcc(.data, .variables, jointfun_)
+dcc2(.data, .variables, jointfun_)
+
+joint_all <- joint_all_(
+  data_new, 
+  .variables = .variables, 
+  .fun = jointfun_, 
+  .total = .total, 
+  .all = .all
+)
