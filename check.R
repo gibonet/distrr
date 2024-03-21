@@ -43,6 +43,10 @@ cov
 report(cov, file = "distrr-report.html")
 
 
+# pkgdown ---------
+library(pkgdown)
+build_site()
+
 
 # Trials ----------
 

@@ -23,6 +23,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -35,26 +37,20 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">distrr</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.6</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.6.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/gibonet/distrr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/gibonet/distrr/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -71,97 +67,106 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="distrr" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#distrr" class="anchor"></a>distrr</h1></div>
-
+<div class="section level1">
+<div class="page-header"><h1 id="distrr">distrr<a class="anchor" aria-label="anchor" href="#distrr"></a>
+</h1></div>
+<p><a href="https://cran.r-project.org/package=distrr" class="external-link"><img src="http://www.r-pkg.org/badges/version/distrr" alt="CRAN_Status_Badge"></a> <a href="https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></p>
 </div>
-<div id="overview" class="section level1">
-<h1 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h1>
-<p>distrr provides some tools to estimate and manage empirical distributions. In particular, one of the main features of distrr is the creation of data cubes of estimated statistics, that include all the combinations of the variables of interest. The package makes strong usage of the tools provided by <a href="https://cran.r-project.org/package=dplyr">dplyr</a>, which is a grammar of data manipulation.</p>
+<div class="section level1">
+<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h1>
+<p>distrr provides some tools to estimate and manage empirical distributions. In particular, one of the main features of distrr is the creation of data cubes of estimated statistics, that include all the combinations of the variables of interest. The package makes strong usage of the tools provided by <a href="https://cran.r-project.org/package=dplyr" class="external-link">dplyr</a>, which is a grammar of data manipulation.</p>
 <p>The main functions to create a data cube are <code><a href="reference/dcc.html">dcc5()</a></code> and <code><a href="reference/dcc6.html">dcc6()</a></code> (<code>dcc</code> stands for data cube creation).</p>
 <p>The data cube creation is like:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>data <span class="op">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">group_by</span>(some variables) <span class="op">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">summarise</span>(one or more estimated statistic)</span></code></pre></div>
-<p>in <a href="https://cran.r-project.org/package=dplyr">dplyr</a> terms, but the operation is done for each possible combination of the variables used for grouping. The result will be a data frame in “tidy form”. See some examples in the Usage section below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="fu">group_by</span>(some variables) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="fu">summarise</span>(one or more estimated statistic)</span></code></pre></div>
+<p>in <a href="https://cran.r-project.org/package=dplyr" class="external-link">dplyr</a> terms, but the operation is done for each possible combination of the variables used for grouping. The result will be a data frame in “tidy form”. See some examples in the Usage section below.</p>
 </div>
-<div id="installation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># From CRAN</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">"distrr"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="co"># Or the development version from GitHub:</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"gibonet/distrr"</span>)</span></code></pre></div>
+<div class="section level1">
+<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># From CRAN</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"distrr"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># Or the development version from GitHub:</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gibonet/distrr"</span>)</span></code></pre></div>
 </div>
-<div id="usage" class="section level1">
-<h1 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h1>
+<div class="section level1">
+<h1 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h1>
 <p>Consider the <code>invented_wages</code> dataset:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">distrr</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">invented_wages</span>)
-<span class="co">#&gt; Classes 'tbl_df' and 'data.frame':   1000 obs. of  5 variables:</span>
-<span class="co">#&gt;  $ gender        : Factor w/ 2 levels "men","women": 1 2 1 2 1 1 1 2 2 2 ...</span>
-<span class="co">#&gt;  $ sector        : Factor w/ 2 levels "secondary","tertiary": 2 1 2 2 1 1 2 1 2 1 ...</span>
-<span class="co">#&gt;  $ education     : Factor w/ 3 levels "I","II","III": 3 2 2 2 2 1 3 1 2 2 ...</span>
-<span class="co">#&gt;  $ wage          : num  8400 4200 5100 7400 4300 4900 5400 2900 4500 3000 ...</span>
-<span class="co">#&gt;  $ sample_weights: num  105 32 36 12 21 46 79 113 34 32 ...</span></pre></div>
-<p>If we want to count the number of observations and estimate the average wage by gender, with <a href="https://cran.r-project.org/package=dplyr">dplyr</a> we can do:</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
-<span class="no">invented_wages</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">gender</span>) <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>(), <span class="kw">av_wage</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">wage</span>))
-<span class="co">#&gt; # A tibble: 2 x 3</span>
-<span class="co">#&gt;   gender     n av_wage</span>
-<span class="co">#&gt;   &lt;fct&gt;  &lt;int&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 men      547   5435.</span>
-<span class="co">#&gt; 2 women    453   4441.</span></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gibonet.github.io/distrr" class="external-link">distrr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">invented_wages</span><span class="op">)</span></span>
+<span><span class="co">#&gt; tibble [1,000 × 5] (S3: tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">#&gt;  $ gender        : Factor w/ 2 levels "men","women": 1 2 1 2 1 1 1 2 2 2 ...</span></span>
+<span><span class="co">#&gt;  $ sector        : Factor w/ 2 levels "secondary","tertiary": 2 1 2 2 1 1 2 1 2 1 ...</span></span>
+<span><span class="co">#&gt;  $ education     : Factor w/ 3 levels "I","II","III": 3 2 2 2 2 1 3 1 2 2 ...</span></span>
+<span><span class="co">#&gt;  $ wage          : num [1:1000] 8400 4200 5100 7400 4300 4900 5400 2900 4500 3000 ...</span></span>
+<span><span class="co">#&gt;  $ sample_weights: num [1:1000] 105 32 36 12 21 46 79 113 34 32 ...</span></span></code></pre></div>
+<p>If we want to count the number of observations and estimate the average wage by gender, with <a href="https://cran.r-project.org/package=dplyr" class="external-link">dplyr</a> we can do:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">invented_wages</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>, av_wage <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">wage</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span><span class="co">#&gt;   gender     n av_wage</span></span>
+<span><span class="co">#&gt;   &lt;fct&gt;  &lt;int&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 men      547   5435.</span></span>
+<span><span class="co">#&gt; 2 women    453   4441.</span></span></code></pre></div>
 <p>We can estimate the same statistics but grouped by education by changing the argument inside <code>group_by</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="no">invented_wages</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">education</span>) <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>(), <span class="kw">av_wage</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">wage</span>))
-<span class="co">#&gt; # A tibble: 3 x 3</span>
-<span class="co">#&gt;   education     n av_wage</span>
-<span class="co">#&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 I           172   3774.</span>
-<span class="co">#&gt; 2 II          719   5099.</span>
-<span class="co">#&gt; 3 III         109   6139.</span></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">invented_wages</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">education</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>, av_wage <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">wage</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 3</span></span>
+<span><span class="co">#&gt;   education     n av_wage</span></span>
+<span><span class="co">#&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 I           172   3774.</span></span>
+<span><span class="co">#&gt; 2 II          719   5099.</span></span>
+<span><span class="co">#&gt; 3 III         109   6139.</span></span></code></pre></div>
 <p>and estimate the statistics by gender and education including both variables in <code>group_by</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="no">invented_wages</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">gender</span>, <span class="no">education</span>) <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>(), <span class="kw">av_wage</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">wage</span>))
-<span class="co">#&gt; # A tibble: 6 x 4</span>
-<span class="co">#&gt; # Groups:   gender [2]</span>
-<span class="co">#&gt;   gender education     n av_wage</span>
-<span class="co">#&gt;   &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 men    I            60   4627.</span>
-<span class="co">#&gt; 2 men    II          409   5278.</span>
-<span class="co">#&gt; 3 men    III          78   6886.</span>
-<span class="co">#&gt; 4 women  I           112   3317.</span>
-<span class="co">#&gt; 5 women  II          310   4865.</span>
-<span class="co">#&gt; 6 women  III          31   4261.</span></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">invented_wages</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">gender</span>, <span class="va">education</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>, av_wage <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">wage</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `summarise()` has grouped output by 'gender'. You can override using the</span></span>
+<span><span class="co">#&gt; `.groups` argument.</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
+<span><span class="co">#&gt;   gender education     n av_wage</span></span>
+<span><span class="co">#&gt;   &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 men    I            60   4627.</span></span>
+<span><span class="co">#&gt; 2 men    II          409   5278.</span></span>
+<span><span class="co">#&gt; 3 men    III          78   6886.</span></span>
+<span><span class="co">#&gt; 4 women  I           112   3317.</span></span>
+<span><span class="co">#&gt; 5 women  II          310   4865.</span></span>
+<span><span class="co">#&gt; 6 women  III          31   4261.</span></span></code></pre></div>
 <p>With <code>dcc5</code> we can perform all the steps above with one call:</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="no">invented_wages</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/dcc.html">dcc5</a></span>(<span class="kw">.variables</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"gender"</span>, <span class="st">"education"</span>), <span class="kw">av_wage</span> <span class="kw">=</span> ~<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">wage</span>))
-<span class="co">#&gt; # A tibble: 12 x 4</span>
-<span class="co">#&gt;    gender education     n av_wage</span>
-<span class="co">#&gt;  * &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Totale Totale     1000   4985.</span>
-<span class="co">#&gt;  2 Totale I           172   3774.</span>
-<span class="co">#&gt;  3 Totale II          719   5099.</span>
-<span class="co">#&gt;  4 Totale III         109   6139.</span>
-<span class="co">#&gt;  5 men    Totale      547   5435.</span>
-<span class="co">#&gt;  6 men    I            60   4627.</span>
-<span class="co">#&gt;  7 men    II          409   5278.</span>
-<span class="co">#&gt;  8 men    III          78   6886.</span>
-<span class="co">#&gt;  9 women  Totale      453   4441.</span>
-<span class="co">#&gt; 10 women  I           112   3317.</span>
-<span class="co">#&gt; 11 women  II          310   4865.</span>
-<span class="co">#&gt; 12 women  III          31   4261.</span></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">invented_wages</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/dcc.html">dcc5</a></span><span class="op">(</span>.variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gender"</span>, <span class="st">"education"</span><span class="op">)</span>, av_wage <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">wage</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 12 × 4</span></span>
+<span><span class="co">#&gt;    gender education     n av_wage</span></span>
+<span><span class="co">#&gt;  * &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Totale Totale     1000   4985.</span></span>
+<span><span class="co">#&gt;  2 Totale I           172   3774.</span></span>
+<span><span class="co">#&gt;  3 Totale II          719   5099.</span></span>
+<span><span class="co">#&gt;  4 Totale III         109   6139.</span></span>
+<span><span class="co">#&gt;  5 men    Totale      547   5435.</span></span>
+<span><span class="co">#&gt;  6 men    I            60   4627.</span></span>
+<span><span class="co">#&gt;  7 men    II          409   5278.</span></span>
+<span><span class="co">#&gt;  8 men    III          78   6886.</span></span>
+<span><span class="co">#&gt;  9 women  Totale      453   4441.</span></span>
+<span><span class="co">#&gt; 10 women  I           112   3317.</span></span>
+<span><span class="co">#&gt; 11 women  II          310   4865.</span></span>
+<span><span class="co">#&gt; 12 women  III          31   4261.</span></span></code></pre></div>
 <p>The resulting data frame contains a column for each grouping variable, and the estimations of all the combinations of the variables:</p>
 <ul>
 <li>by gender</li>
@@ -171,34 +176,35 @@
 </ul>
 <p>Note that in the result there are some rows where the variables take the value <code>"Totale"</code>. When a variable has this value, it means that the subset of the data considered in that row contains all the values of the variable. For example, the first row of the result of <code>dcc5</code> contains the estimations for all the dataset. The value <code>"Totale"</code> can be changed with the argument <code>.total</code>.</p>
 <p>The same result of <code>dcc5</code> can be produced by <code>dcc6</code>, with a slightly different approach.</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="co"># Set a list of function calls</span>
-<span class="no">list_of_funs</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-  <span class="kw">n</span> <span class="kw">=</span> ~<span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>(),
-  <span class="kw">av_wage</span> <span class="kw">=</span> ~<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">wage</span>),
-  <span class="kw">weighted_av_wage</span> <span class="kw">=</span> ~<span class="fu"><a href="https://rdrr.io/r/stats/weighted.mean.html">weighted.mean</a></span>(<span class="no">wage</span>, <span class="no">sample_weights</span>)
-)
-
-<span class="co"># Set the grouping variables</span>
-<span class="no">vars</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"gender"</span>, <span class="st">"education"</span>)
-
-<span class="co"># And create the data cube with dcc6</span>
-<span class="no">invented_wages</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/dcc6.html">dcc6</a></span>(<span class="kw">.variables</span> <span class="kw">=</span> <span class="no">vars</span>, <span class="kw">.funs_list</span> <span class="kw">=</span> <span class="no">list_of_funs</span>, <span class="kw">.total</span> <span class="kw">=</span> <span class="st">"TOTAL"</span>)
-<span class="co">#&gt; # A tibble: 12 x 5</span>
-<span class="co">#&gt;    gender education     n av_wage weighted_av_wage</span>
-<span class="co">#&gt;  * &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;            &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 TOTAL  TOTAL      1000   4985.            4645.</span>
-<span class="co">#&gt;  2 TOTAL  I           172   3774.            3527.</span>
-<span class="co">#&gt;  3 TOTAL  II          719   5099.            4917.</span>
-<span class="co">#&gt;  4 TOTAL  III         109   6139.            5885.</span>
-<span class="co">#&gt;  5 men    TOTAL       547   5435.            5323.</span>
-<span class="co">#&gt;  6 men    I            60   4627.            4681.</span>
-<span class="co">#&gt;  7 men    II          409   5278.            5129.</span>
-<span class="co">#&gt;  8 men    III          78   6886.            6173.</span>
-<span class="co">#&gt;  9 women  TOTAL       453   4441.            3614.</span>
-<span class="co">#&gt; 10 women  I           112   3317.            3227.</span>
-<span class="co">#&gt; 11 women  II          310   4865.            4225.</span>
-<span class="co">#&gt; 12 women  III          31   4261.            4388.</span></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Set a list of function calls</span></span>
+<span><span class="va">list_of_funs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  n <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  av_wage <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">wage</span><span class="op">)</span>,</span>
+<span>  weighted_av_wage <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/stats/weighted.mean.html" class="external-link">weighted.mean</a></span><span class="op">(</span><span class="va">wage</span>, <span class="va">sample_weights</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Set the grouping variables</span></span>
+<span><span class="va">vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gender"</span>, <span class="st">"education"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># And create the data cube with dcc6</span></span>
+<span><span class="va">invented_wages</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/dcc6.html">dcc6</a></span><span class="op">(</span>.variables <span class="op">=</span> <span class="va">vars</span>, .funs_list <span class="op">=</span> <span class="va">list_of_funs</span>, .total <span class="op">=</span> <span class="st">"TOTAL"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 12 × 5</span></span>
+<span><span class="co">#&gt;    gender education     n av_wage weighted_av_wage</span></span>
+<span><span class="co">#&gt;  * &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;            &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 TOTAL  TOTAL      1000   4985.            4645.</span></span>
+<span><span class="co">#&gt;  2 TOTAL  I           172   3774.            3527.</span></span>
+<span><span class="co">#&gt;  3 TOTAL  II          719   5099.            4917.</span></span>
+<span><span class="co">#&gt;  4 TOTAL  III         109   6139.            5885.</span></span>
+<span><span class="co">#&gt;  5 men    TOTAL       547   5435.            5323.</span></span>
+<span><span class="co">#&gt;  6 men    I            60   4627.            4681.</span></span>
+<span><span class="co">#&gt;  7 men    II          409   5278.            5129.</span></span>
+<span><span class="co">#&gt;  8 men    III          78   6886.            6173.</span></span>
+<span><span class="co">#&gt;  9 women  TOTAL       453   4441.            3614.</span></span>
+<span><span class="co">#&gt; 10 women  I           112   3317.            3227.</span></span>
+<span><span class="co">#&gt; 11 women  II          310   4865.            4225.</span></span>
+<span><span class="co">#&gt; 12 women  III          31   4261.            4388.</span></span></code></pre></div>
 <p>Compared to the results obtained with <code>dcc5</code>, we added the weighted average of wages and changed the <code>"Totale"</code> value to <code>"TOTAL"</code>.</p>
 </div>
 
@@ -206,44 +212,49 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=distrr">https://​cloud.r-project.org/​package=distrr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/gibonet/distrr/">https://​github.com/​gibonet/​distrr/​</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Sandro Petrillo Burri <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="https://cloud.r-project.org/package=distrr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/gibonet/distrr/" class="external-link">Browse source code</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/gibonet/distrr"><img src="https://travis-ci.org/gibonet/distrr.svg?branch=master" alt="Travis-CI Build Status"></a></li>
-<li><a href="https://cran.r-project.org/package=distrr"><img src="http://www.r-pkg.org/badges/version/distrr" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-2" class="external-link">GPL-2</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing distrr</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Sandro Burri <br><small class="roles"> Author, maintainer </small>  </li>
+</ul>
+</div>
+
+
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Sandro Petrillo Burri.</p>
+  <p></p>
+<p>Developed by Sandro Burri.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -251,6 +262,8 @@
 
   
 
+
+  
 
   </body>
 </html>
