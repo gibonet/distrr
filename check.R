@@ -26,6 +26,8 @@ install(upgrade = "never")
 # usethis ---------
 library(usethis)
 
+use_package_doc()
+
 use_testthat()
 
 use_test("dcc")

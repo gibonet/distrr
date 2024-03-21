@@ -17,13 +17,13 @@ Version: 0.0.6.9000
 License: GPL-2
 URL: https://gibonet.github.io/distrr, https://github.com/gibonet/distrr
 Authors@R: c(
-  person("Sandro", "Petrillo Burri", email = "gibo.gaf@gmail.com", role = c("aut", "cre")))
-Maintainer: Sandro Petrillo Burri <gibo.gaf@gmail.com>
-RoxygenNote: 7.2.3
+  person("Sandro", "Burri", email = "gibo.gaf@gmail.com", role = c("aut", "cre")))
+Maintainer: Sandro Burri <gibo.gaf@gmail.com>
+RoxygenNote: 7.3.1
 Encoding: UTF-8
 LazyData: yes
 Collate:
-  "distrr.R"
+  "distrr-package.R"
   "invented_data.R"
   "compat-lazyeval.R"
   "dplyr_new_wrappers.R"
