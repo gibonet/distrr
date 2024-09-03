@@ -3,8 +3,11 @@
 
 # distrr
 
+<!-- badges: start -->
+
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
 [![R-CMD-check](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
 # Overview
 
@@ -114,6 +117,7 @@ With `dcc5` we can perform all the steps above with one call:
 ``` r
 invented_wages |> 
   dcc5(.variables = c("gender", "education"), av_wage = ~mean(wage))
+#>   |                                                                              |                                                                      |   0%  |                                                                              |===================================                                   |  50%  |                                                                              |======================================================================| 100%
 #> # A tibble: 12 × 4
 #>    gender education     n av_wage
 #>  * <fct>  <fct>     <int>   <dbl>
@@ -165,6 +169,7 @@ vars <- c("gender", "education")
 # And create the data cube with dcc6
 invented_wages |> 
   dcc6(.variables = vars, .funs_list = list_of_funs, .total = "TOTAL")
+#>   |                                                                              |                                                                      |   0%  |                                                                              |===================================                                   |  50%  |                                                                              |======================================================================| 100%
 #> # A tibble: 12 × 5
 #>    gender education     n av_wage weighted_av_wage
 #>  * <fct>  <fct>     <int>   <dbl>            <dbl>
