@@ -2,7 +2,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
+[![CRAN
+status](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
 [![R-CMD-check](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
