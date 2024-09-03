@@ -3,7 +3,7 @@
 <!-- badges: start -->
 
 [![CRAN
-status](http://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
+status](https://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr)
 [![R-CMD-check](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
