@@ -11,7 +11,8 @@ wq(x, weights, probs = c(0.5))
 
 \item{weights}{A vector of (positive) sample weights}
 
-\item{probs}{a numeric vector with the desired quantile levels (default 0.5, the median)}
+\item{probs}{a numeric vector with the desired quantile 
+levels (default 0.5, the median)}
 }
 \value{
 The weighted quantile (a numeric vector)
@@ -23,7 +24,9 @@ Empirical weighted quantile
 wq(x = rnorm(100), weights = runif(100))
 }
 \references{
-Ferrez, J., Graf, M. (2007). Enquète suisse sur la structure des
- salaires. Programmes R pour l'intervalle de confiance de la médiane. 
- (Rapport de méthodes No. 338-0045). Neuchâtel: Office fédéral de statistique.
+Ferrez, J., Graf, M. (2007). Enquète suisse sur 
+    la structure des salaires. Programmes R pour l'intervalle 
+    de confiance de la médiane. 
+    (Rapport de méthodes No. 338-0045). Neuchâtel: 
+    Office fédéral de statistique.
 }

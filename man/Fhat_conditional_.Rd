@@ -22,8 +22,10 @@ a data frame, with the variables used to condition, the x variable, and columns 
 Weighted empirical cumulative distribution function (ecdf), conditional on one or more variables
 }
 \examples{
-Fhat_conditional_(mtcars,
-                 .variables = c("vs", "am"),
-                 x = "mpg",
-                 weights = "cyl")
+Fhat_conditional_(
+  mtcars,
+  .variables = c("vs", "am"),
+  x = "mpg",
+  weights = "cyl"
+)
 }

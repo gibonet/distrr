@@ -23,10 +23,11 @@ dcc5(
 \arguments{
 \item{.data}{data frame to be processed}
 
-\item{.variables}{variables to split data frame by, as a character vector 
-(\code{c("var1", "var2")}).}
+\item{.variables}{variables to split data frame by, as a
+character vector (\code{c("var1", "var2")}).}
 
-\item{.fun}{function to apply to each piece (default: \code{\link{jointfun_}})}
+\item{.fun}{function to apply to each piece 
+(default: \code{\link{jointfun_}})}
 
 \item{...}{additional functions passed to \code{.fun}.}
 
@@ -40,7 +41,14 @@ that includes all the observations of a variable (default: \code{"Totale"}).}
 complete dataset.}
 }
 \value{
-a data cube, with a column for each cateogorical variable used, and a row for each combination of all the categorical variables' modalities. In addition to all the modalities, each variable will also have a "Total" possibility, which includes all the others. The data cube will contain marginal, conditional and joint empirical distributions...
+a data cube, with a column for each 
+    cateogorical variable used, and a row for each 
+    combination of all the categorical variables' 
+    modalities. In addition to all the modalities, 
+    each variable will also have a "Total" possibility, 
+    which includes all the others. The data cube will 
+    contain marginal, conditional and joint empirical 
+    distributions...
 }
 \description{
 Data cube creation (dcc)
@@ -48,14 +56,19 @@ Data cube creation (dcc)
 \examples{
 data("invented_wages")
 str(invented_wages)
-tmp <- dcc(.data = invented_wages, 
-           .variables = c("gender", "sector"), .fun = jointfun_)
+tmp <- dcc(
+  .data = invented_wages, 
+  .variables = c("gender", "sector"), 
+  .fun = jointfun_
+)
 tmp
 str(tmp)
-tmp2 <- dcc2(.data = invented_wages, 
-            .variables = c("gender", "education"), 
-            .fun = jointfun_, 
-            order_type = extract_unique2)
+tmp2 <- dcc2(
+  .data = invented_wages, 
+  .variables = c("gender", "education"), 
+  .fun = jointfun_, 
+  order_type = extract_unique2
+)
 tmp2
 str(tmp2)
 
