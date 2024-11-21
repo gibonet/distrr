@@ -155,7 +155,7 @@ only_joint <- function(.cube,
   tmp <- paste0(.variables, " != '", .total, "'")
   dots <- paste(tmp, collapse = " & ")
   
-  filter2_(.cube.dots = dots)
+  filter2_(.cube, .dots = dots)
 }
 
 
