@@ -1,6 +1,6 @@
 
 wq_df <- function(.data, x, weights, probs = c(0.5)){
-  Fhat_ <- .data |> Fhat_df_(x = x, weights = weights)
+  Fhat_ <- Fhat_df_(.data, x = x, weights = weights)
   
   # First indices greater or equal to desired quantile levels
   k <- lapply(probs, function(y) which(Fhat_[["Fhat"]] >= y)[1:2])

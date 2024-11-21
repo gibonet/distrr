@@ -13,10 +13,11 @@
 #' str(tmp)
 #' @export
 jointfun_ <- function(.data, .variables, ...){
-  .data |>
-    gby_(.variables) |>
-    summarise2_(n = ~dplyr::n(), ...) |>
-    stats::na.omit()
+  stats::na.omit(
+    summarise2_(
+      gby_(.data, .variables), n = ~dplyr::n(), ...
+    )
+  )
 }
 
 
