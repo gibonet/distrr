@@ -250,10 +250,6 @@ joint_all_funs_ <- function(.data,
         joint[[j]], .funs_list
       )
       joint[[j]] <- stats::na.omit(joint[[j]])
-      # joint[[j]] <- .data |>
-      #   gby_(.variables[m_comb[[i]][, j]]) |>
-      #   summarise2_dots_(.funs_list) |>
-      #   stats::na.omit()
     }
     
     if (showProgress) utils::setTxtProgressBar(pb, i)
