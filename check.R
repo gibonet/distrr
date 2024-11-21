@@ -22,6 +22,7 @@ build()
 
 install(upgrade = "never")
 
+test()
 
 # usethis ---------
 library(usethis)
