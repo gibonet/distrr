@@ -86,7 +86,9 @@ joint_all_ <- function(.data,
     joint <- vector(mode = "list", length = ncol(m_comb[[i]]))
     
     for (j in seq_along(joint)) {
-      joint[[j]] <- .fun(.data, .variables[m_comb[[i]][ , j]], ...) # ...
+      joint[[j]] <- .fun(
+        .data, .variables[m_comb[[i]][ , j]], ...
+      ) # ...
     }
     
     joint_all[[i]] <- joint
@@ -148,11 +150,13 @@ remove_total <- function(.cube, .variables, .total = "Totale") {
 #' # dcc5 works like dcc2, but has an additional optional argument, .total,
 #' # that can be added to give a name to the groups that include all the 
 #' # observations of a variable.
-#' tmp5 <- dcc5(.data = invented_wages, 
-#'             .variables = c("gender", "education"),
-#'             .fun = jointfun_,
-#'             .total = "TOTAL",
-#'             order_type = extract_unique2)
+#' tmp5 <- dcc5(
+#'   .data = invented_wages, 
+#'   .variables = c("gender", "education"),
+#'   .fun = jointfun_,
+#'   .total = "TOTAL",
+#'   order_type = extract_unique2
+#' )
 #' tmp5
 #' 
 #' @rdname dcc
@@ -205,14 +209,14 @@ dcc5 <- function(.data,
   
   return(joint_all_final)
 }
-###############################################################################
 
 
 
 
 
 
-###############################################################################
+
+
 # Argument .fun is replaced by argument .funs_list, which is a list in the form 
 # list(n = ~n()). In addition, argument "..." is removed. 
 # The .funs_list argument will contain all the statistics to be estimated in 
@@ -222,7 +226,7 @@ dcc5 <- function(.data,
 #   n = ~n(), 
 #   p50 = ~wq(wage, sample_weights, probs = 0.5), 
 #   p25 = ~wq(wage, sample_weights, probs = 0.25))
-###############################################################################
+
 # Computations for the cube creation
 joint_all_funs_ <- function(.data, 
                             .variables, 
@@ -308,15 +312,19 @@ joint_all_funs_ <- function(.data,
 #'   complete dataset.
 #'   
 #' @examples 
-#' dcc6(invented_wages,
-#'      .variables = c("gender", "sector"), 
-#'      .funs_list = list(n = ~dplyr::n()),
-#'      .all = TRUE)
+#' dcc6(
+#'   invented_wages,
+#'   .variables = c("gender", "sector"), 
+#'   .funs_list = list(n = ~dplyr::n()),
+#'   .all = TRUE
+#' )
 #'      
-#' dcc6(invented_wages,
-#'      .variables = c("gender", "sector"), 
-#'      .funs_list = list(n = ~dplyr::n()),
-#'      .all = FALSE)
+#' dcc6(
+#'   invented_wages,
+#'   .variables = c("gender", "sector"), 
+#'   .funs_list = list(n = ~dplyr::n()),
+#'   .all = FALSE
+#' )
 #' 
 #' @export
 dcc6 <- function(.data, 
@@ -364,13 +372,10 @@ dcc6 <- function(.data,
   
   return(joint_all_final)
 }
-###############################################################################
 
 
 
 
-
-###############################################################################
 # Computations for the cube creation
 # With the choice of combinations of variables
 joint_all_funs2_ <- function(.data, 

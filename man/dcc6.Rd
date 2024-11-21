@@ -41,20 +41,25 @@ that includes all the observations of a variable (default: \code{"Totale"}).}
 \item{.all}{logical, indicating if functions have to be evaluated on the 
 complete dataset.}
 
-\item{fixed_variable}{name of the variable for which you do not want to estimate the total}
+\item{fixed_variable}{name of the variable for which you do 
+not want to estimate the total}
 }
 \description{
 Data cube creation
 }
 \examples{
-dcc6(invented_wages,
-     .variables = c("gender", "sector"), 
-     .funs_list = list(n = ~dplyr::n()),
-     .all = TRUE)
+dcc6(
+  invented_wages,
+  .variables = c("gender", "sector"), 
+  .funs_list = list(n = ~dplyr::n()),
+  .all = TRUE
+)
      
-dcc6(invented_wages,
-     .variables = c("gender", "sector"), 
-     .funs_list = list(n = ~dplyr::n()),
-     .all = FALSE)
+dcc6(
+  invented_wages,
+  .variables = c("gender", "sector"), 
+  .funs_list = list(n = ~dplyr::n()),
+  .all = FALSE
+)
 
 }

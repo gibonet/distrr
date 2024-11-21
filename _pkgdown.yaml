@@ -1,5 +1,10 @@
+template:
+  bootstrap: 5
+
 development:
   mode: unreleased
+
+url: https://gibonet.github.io/distrr/
 
 reference:
   - title: Data cube creation

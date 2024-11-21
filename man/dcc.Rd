@@ -75,11 +75,13 @@ str(tmp2)
 # dcc5 works like dcc2, but has an additional optional argument, .total,
 # that can be added to give a name to the groups that include all the 
 # observations of a variable.
-tmp5 <- dcc5(.data = invented_wages, 
-            .variables = c("gender", "education"),
-            .fun = jointfun_,
-            .total = "TOTAL",
-            order_type = extract_unique2)
+tmp5 <- dcc5(
+  .data = invented_wages, 
+  .variables = c("gender", "education"),
+  .fun = jointfun_,
+  .total = "TOTAL",
+  order_type = extract_unique2
+)
 tmp5
 
 }

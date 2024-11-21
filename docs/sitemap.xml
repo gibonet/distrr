@@ -1,54 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Fhat_conditional_.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Fhat_df_.html</loc>
-  </url>
-  <url>
-    <loc>/reference/combn_char.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dcc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dcc6.html</loc>
-  </url>
-  <url>
-    <loc>/reference/distrr-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/distrr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extract_unique.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/invented_wages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/jointfun_.html</loc>
-  </url>
-  <url>
-    <loc>/reference/only_joint.html</loc>
-  </url>
-  <url>
-    <loc>/reference/reexports.html</loc>
-  </url>
-  <url>
-    <loc>/reference/wq.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://gibonet.github.io/distrr/404.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/authors.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/index.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/Fhat_conditional_.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/Fhat_df_.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/combn_char.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/dcc.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/dcc6.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/distrr-package.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/extract_unique.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/index.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/invented_wages.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/jointfun_.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/only_joint.html</loc></url>
+<url><loc>https://gibonet.github.io/distrr/reference/wq.html</loc></url>
 </urlset>
+
