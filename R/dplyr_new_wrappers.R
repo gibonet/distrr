@@ -19,8 +19,7 @@
 
 gby_ <- function(.data, .variables){
   .variables <- lapply(.variables, as.symbol)
-  .data |>
-    dplyr::group_by(!!! .variables)
+  dplyr::group_by(.data, !!! .variables)
 }
 # gby_(mtcars, c("cyl", "vs"))
 # gby_(mtcars, c("cyl"))
@@ -29,8 +28,7 @@ gby_ <- function(.data, .variables){
 
 select2_ <- function(.data, .variables){
   .variables <- lapply(.variables, as.symbol)
-  .data |>
-    dplyr::select(!!! .variables)
+  dplyr::select(.data, !!! .variables)
 }
 # mtcars |> dplyr::select(mpg, vs)
 # mtcars |> select2_(c("mpg", "vs"))
@@ -39,8 +37,7 @@ select2_ <- function(.data, .variables){
 
 arrange2_ <- function(.data, .variables){
   .variables <- lapply(.variables, as.symbol)
-  .data |>
-    dplyr::arrange(!!! .variables)
+  dplyr::arrange(.data, !!! .variables)
 }
 # mtcars |> arrange(mpg, vs)
 # mtcars |> arrange2_(c("mpg", "vs"))
@@ -85,15 +82,19 @@ sumx_ <- function(.data, x){
 
 mutcumx_ <- function(.data, x){
   x <- rlang::sym(x)
-  .data |>
-    dplyr::mutate(wcum = cumsum(!! x), Fhat = cumsum(!! x) / sum(!! x))
+  dplyr::mutate(
+    .data, 
+    wcum = cumsum(!! x), 
+    Fhat = cumsum(!! x) / sum(!! x)
+  )
 }
 # mutcumx_(mtcars, "cyl")
 
 
 complete2_ <- function(.data, .variables){
   .variables <- lapply(.variables, rlang::sym)
-  .data |>
-    tidyr::complete(!!! .variables)
+  tidyr::complete(
+    .data, !!! .variables
+  )
 }
 
