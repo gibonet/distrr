@@ -391,11 +391,6 @@ joint_all_funs2_ <- function(.data,
       joint_all[[i]], .funs_list
     )
     joint_all[[i]] <- stats::na.omit(joint_all[[i]])
-    
-    # joint_all[[i]] <- .data |>
-    #   gby_(.list_variables[[i]]) |>
-    #   summarise2_dots_(.funs_list) |>
-    #   stats::na.omit()
   }
   
   # trasforma una nested list in una lista classica  
@@ -434,12 +429,13 @@ finish_cube2 <- function(joint_all, .variables, l_lev, l) {
   dots_all <- c(.variables, measures)
   joint_all <- select2_(joint_all, dots_all)
   
-  # Completamento delle righe per le quali non esistono combinazioni di
-  # variabili nei dati
+  # Completamento delle righe per le quali non 
+  # esistono combinazioni di variabili nei dati
   # joint_all <- joint_all |> 
   #   tidyr::complete_(cols = .variables, fill = as.list(rep(NA, l)))
   
-  # Trasformazione delle .variables in factor e assegnamento dei livelli
+  # Trasformazione delle .variables in factor e 
+  # assegnamento dei livelli
   # in base a l_lev
   options(drop = FALSE)
   
@@ -500,7 +496,6 @@ dcc7 <- function(.data,
   
   return(joint_all_final)
 }
-###############################################################################
 
 
 
