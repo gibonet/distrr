@@ -48,15 +48,14 @@ dcc6_fixed <- function(.data,
     for (i in seq_along(cube_list)) {
       to_keep <- paste0(fixed_variable, " == '", fixed_values[i], "'")
       
-      cube_list[[i]] <- data_new |>
-        filter2_(.dots = to_keep) |>
-        joint_all_funs_(
-          .variables = .variables[!.variables %in% fixed_variable], 
-          .funs_list = .funs_list, 
-          .total = .total, 
-          .all = .all,
-          showProgress = FALSE
-        )
+      cube_list[[i]] <-  joint_all_funs_(
+        .data = filter2_(data_new, .dots = to_keep), 
+        .variables = .variables[!.variables %in% fixed_variable], 
+        .funs_list = .funs_list, 
+        .total = .total, 
+        .all = .all,
+        showProgress = FALSE
+      )
       
       utils::setTxtProgressBar(pb, i)
       
@@ -70,7 +69,7 @@ dcc6_fixed <- function(.data,
     no_vars <- cols[!cols %in% .variables]
     cols <- c(.variables, no_vars)
     
-    cube <- cube |> select2_(cols)
+    cube <- select2_(cube, cols)
     
     # Last operations, after the creation of the data cube.
     # Reordering columns, creating factors, arranging rows, ...
