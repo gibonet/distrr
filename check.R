@@ -32,6 +32,7 @@ use_package_doc()
 use_testthat()
 
 use_test("dcc")
+use_test("combn_char")
 
 
 # covr::package_coverage() ------------
