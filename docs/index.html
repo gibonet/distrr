@@ -47,12 +47,11 @@
 <div class="row">
   <main id="main" class="col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="distrr">distrr<a class="anchor" aria-label="anchor" href="#distrr"></a>
+<div class="page-header"><h1 id="distrr-">distrr <img src="inst/distrr-sticker.svg" align="right" height="138"><a class="anchor" aria-label="anchor" href="#distrr-"></a>
 </h1></div>
-</div>
-<div class="section level1">
-<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h1>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>distrr provides some tools to estimate and manage empirical distributions. In particular, one of the main features of distrr is the creation of data cubes of estimated statistics, that include all the combinations of the variables of interest. The package makes strong usage of the tools provided by <a href="https://cran.r-project.org/package=dplyr" class="external-link">dplyr</a>, which is a grammar of data manipulation.</p>
 <p>The main functions to create a data cube are <code><a href="reference/dcc.html">dcc5()</a></code> and <code><a href="reference/dcc6.html">dcc6()</a></code> (<code>dcc</code> stands for data cube creation).</p>
 <p>The data cube creation is like:</p>
@@ -61,9 +60,9 @@
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="fu">summarise</span>(one or more estimated statistic)</span></code></pre></div>
 <p>in <a href="https://cran.r-project.org/package=dplyr" class="external-link">dplyr</a> terms, but the operation is done for each possible combination of the variables used for grouping. The result will be a data frame in “tidy form”. See some examples in the Usage section below.</p>
 </div>
-<div class="section level1">
-<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h1>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># From CRAN</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"distrr"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
@@ -72,9 +71,9 @@
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
 <span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gibonet/distrr"</span>)</span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
-</h1>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p>Consider the <code>invented_wages</code> dataset:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gibonet.github.io/distrr">distrr</a></span><span class="op">)</span></span>
@@ -186,6 +185,7 @@
 <span><span class="co">#&gt; 11 women  II          310   4865.            4225.</span></span>
 <span><span class="co">#&gt; 12 women  III          31   4261.            4388.</span></span></code></pre></div>
 <p>Compared to the results obtained with <code>dcc5</code>, we added the weighted average of wages and changed the <code>"Totale"</code> value to <code>"TOTAL"</code>.</p>
+</div>
 </div>
 
   </main><aside class="col-md-3"><div class="links">

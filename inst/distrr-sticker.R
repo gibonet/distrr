@@ -29,6 +29,7 @@ p
 
 p + theme(plot.background = element_rect(fill = "#DE66E0"))
 
+if (!dir.exists("man/figures")) dir.create("man/figures", recursive = TRUE)
 sticker(
   p, package = "distrr", p_size = 10,
   s_x = 1, s_y = 0.75,
@@ -37,7 +38,7 @@ sticker(
   h_fill = "#DE66E0", h_color = "black",
   # p_family = "noto_sans_mono_light",
   p_family = "trade_gothic",
-  filename = "inst/distrr-sticker.svg",
+  filename = "man/figures/logo.svg",
   dpi = 600
 )
 
