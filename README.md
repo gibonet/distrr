@@ -7,7 +7,7 @@ status](https://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org
 [![R-CMD-check](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gibonet/distrr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# distrr <img src="man/figures/logo.svg" align="right" height="138" />
+# distrr <a href="https://gibonet.github.io/distrr/"><img src="man/figures/logo.svg" align="right" height="139" alt="distrr website" /></a>
 
 ## Overview
 

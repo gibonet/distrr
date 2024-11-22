@@ -38,7 +38,7 @@ sticker(
   h_fill = "#DE66E0", h_color = "black",
   # p_family = "noto_sans_mono_light",
   p_family = "trade_gothic",
-  filename = "man/figures/logo.svg",
+  filename = "inst/logo.svg",
   dpi = 600
 )
 

@@ -24,12 +24,17 @@ install(upgrade = "never")
 
 test()
 
+# build_readme()
+# build_site()
+
 # usethis ---------
 library(usethis)
 
 use_package_doc()
 
 use_testthat()
+
+use_logo("inst/logo.svg")
 
 use_test("dcc")
 use_test("combn_char")
