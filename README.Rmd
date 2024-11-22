@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# distrr
+# distrr <img src="inst/distrr-sticker.svg" align="right" height="138" />
 
 
 # Overview
