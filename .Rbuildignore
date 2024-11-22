@@ -13,3 +13,7 @@
 check.R
 distrr-report.html
 lib/
+^_pkgdown\.yml$
+^pkgdown$
+
+

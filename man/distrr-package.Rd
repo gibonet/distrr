@@ -13,6 +13,7 @@ Useful links:
 \itemize{
   \item \url{https://gibonet.github.io/distrr}
   \item \url{https://github.com/gibonet/distrr}
+  \item \url{https://gibonet.github.io/distrr/}
 }
 
 }

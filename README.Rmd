@@ -4,6 +4,8 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# distrr <a href="https://gibonet.github.io/distrr/"><img src="man/figures/logo.svg" align="right" height="139" alt="distrr website" /></a>
+
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org/package=distrr) 
@@ -19,7 +21,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-# distrr <a href="https://gibonet.github.io/distrr/"><img src="man/figures/logo.svg" align="right" height="139" alt="distrr website" /></a>
 
 ## Overview
 
