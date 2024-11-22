@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 # distrr <img src="inst/distrr-sticker.svg" align="right" height="138" />
 
 
-# Overview
+## Overview
 
 distrr provides some tools to estimate and manage empirical distributions. In particular, one of the main features of distrr is
 the creation of data cubes of estimated statistics, that include all the combinations of the variables of interest. The package makes strong
@@ -43,7 +43,7 @@ the variables used for grouping. The result will be a data frame in "tidy form".
 
  
 
-# Installation
+## Installation
 
 
 ```
@@ -57,7 +57,7 @@ remotes::install_github("gibonet/distrr")
 ```
 
 
-# Usage
+## Usage
 
 Consider the `invented_wages` dataset:
 

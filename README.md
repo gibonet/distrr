@@ -9,7 +9,7 @@ status](https://www.r-pkg.org/badges/version/distrr)](https://cran.r-project.org
 
 # distrr <img src="inst/distrr-sticker.svg" align="right" height="138" />
 
-# Overview
+## Overview
 
 distrr provides some tools to estimate and manage empirical
 distributions. In particular, one of the main features of distrr is the
@@ -33,7 +33,7 @@ operation is done for each possible combination of the variables used
 for grouping. The result will be a data frame in “tidy form”. See some
 examples in the Usage section below.
 
-# Installation
+## Installation
 
     # From CRAN
     install.packages("distrr")
@@ -43,7 +43,7 @@ examples in the Usage section below.
     # install.packages("remotes")
     remotes::install_github("gibonet/distrr")
 
-# Usage
+## Usage
 
 Consider the `invented_wages` dataset:
 
