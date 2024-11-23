@@ -42,4 +42,15 @@ sticker(
   dpi = 600
 )
 
+sticker(
+  p, package = "distrr", p_size = 30,
+  s_x = 1, s_y = 0.75,
+  s_width = 0.7, s_height = 0.7,
+  p_color = "black",
+  h_fill = "#DE66E0", h_color = "black",
+  # p_family = "noto_sans_mono_light",
+  p_family = "trade_gothic",
+  filename = "inst/logo.png",
+  dpi = 300
+)
 
