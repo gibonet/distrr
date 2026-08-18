@@ -4,6 +4,7 @@
 # Push to github and gitlab -----------
 # git push -u gitlab master
 # git push -u origin master
+# git push -u github master
 
 # git checkout -b progressbar
 # git branch
