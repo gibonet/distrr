@@ -1,4 +1,6 @@
 
+# git remote add github https://github.com/gibonet/distrr.git
+
 # Push to github and gitlab -----------
 # git push -u gitlab master
 # git push -u origin master
